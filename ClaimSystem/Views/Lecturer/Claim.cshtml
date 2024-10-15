@@ -1,0 +1,40 @@
+﻿@{
+    ViewData["Title"] = "Claims";
+}
+
+@model ClaimSystem.Models.Claim
+
+<div class="text-center">
+    <h1 class="display-4">Submit Claims</h1>
+  
+</div>
+
+<form asp-action=" ClaimForm" asp-controller="Lecturer" enctype="multipart/form-data>
+    <div class="form-group">
+        <label for="LecturerName">Lecturer Name</label>
+        <input type="text" class="form-control" id="LecturerName" name="LecturerName" required />
+    </div>
+
+    <div class="form-group">
+        <label for="HoursWorked">Hours Worked</label>
+        <input type="number" class="form-control" id="HoursWorked" name="HoursWorked" required />
+    </div>
+
+    <div class="form-group">
+        <label for="HourlyRate">Hourly Rate</label>
+        <input type="number" step="0.01" class="form-control" id="HourlyRate" name="HourlyRate" required />
+    </div>
+
+    <div class="form-group">
+        <label for="Notes">Additional Notes (Optional)</label>
+        <textarea class="form-control" id="Notes" name="Notes"></textarea>
+    </div>
+    <div class="form-group">
+        <label for="Files">Supporting Documents</label>
+        <input type="file" id="myFile" name="FileName">
+        <input type="submit"
+    </div>
+    
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
