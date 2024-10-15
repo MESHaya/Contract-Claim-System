@@ -12,7 +12,7 @@ namespace ClaimSystem
             // Add services to the container.
             builder.Services.AddControllersWithViews();
 
-            builder.Services.AddDbContext<ClaimsDbContext>(options =>
+            builder.Services.AddDbContext<ClaimDbContext>(options =>
             options.UseInMemoryDatabase("claimsDb")); 
 
             var app = builder.Build();

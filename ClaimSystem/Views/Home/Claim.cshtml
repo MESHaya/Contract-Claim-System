@@ -1,0 +1,32 @@
+﻿@{
+    ViewData["Title"] = "Claim";
+}
+
+@model List<ClaimSystem.Models.Claims>
+
+<div class="text-center">
+    <h1 class="display-4">Claims</h1>
+    <br />
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Lecturer Name</th>
+                <th>Status</th>
+                <th>Date Submitted</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var claim in Model)
+            {
+                <tr>
+                    <td>@claim.Id</td>
+                    <td>@claim.LecturerName</td>
+                    <td>@claim.Status</td>
+                    <td>@claim.DateSubmitted.ToString("MM/dd/yyyy")</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
