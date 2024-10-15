@@ -9,12 +9,12 @@ namespace SpendSmart.Controllers
     {
         private readonly ILogger<HomeController> _logger;
 
-        private readonly ClaimDbContext _context;
+       
 
-        public HomeController(ILogger<HomeController> logger, ClaimDbContext context)
+        public HomeController(ILogger<HomeController> logger)
         {
             _logger = logger;
-            _context = context;
+            
         }
 
         public IActionResult Index()
@@ -22,31 +22,7 @@ namespace SpendSmart.Controllers
             return View();
         }
 
-        public IActionResult Claim()
-        {
-            var allClaims = _context.Claim.ToList();
-            return View(allClaims);
-        }
-
-
-        public IActionResult CreateClaim()
-        {
-            return View();
-        }
-
-        public IActionResult CreateClaimForm(Claims model)
-        {
-
-            model.Status = "Pending";
-            _context.Claim.Add(model);
-            _context.SaveChanges();
-
-            return RedirectToAction("Claim");
-        }
-
-
-
-
+       
         public IActionResult Privacy()
         {
             return View();

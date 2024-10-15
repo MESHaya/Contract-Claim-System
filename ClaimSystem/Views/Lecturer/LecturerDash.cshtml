@@ -1,0 +1,31 @@
+﻿@{
+    ViewData["Title"] = "Lecturer Dashboard";
+}
+
+<h2>Lecturer Dashboard</h2>
+
+<div class="card-deck">
+    <div class="card">
+        <div class="card-body text-center">
+            <h5 class="card-title">Submit a Claim</h5>
+            <p class="card-text">Submit a new claim and attach supporting documents for hours worked.</p>
+            <a href="@Url.Action("CreateClaim", "Lecturer")" class="btn btn-primary">Submit a Claim</a>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-body text-center">
+            <h5 class="card-title">View Claim History</h5>
+            <p class="card-text">View all the claims you've submitted in the past and their statuses.</p>
+            <a href="@Url.Action("Claim", "Lecturer")" class="btn btn-primary">View History</a>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-body text-center">
+            <h5 class="card-title">Track Claims</h5>
+            <p class="card-text">Track the status of your ongoing claims.</p>
+            <a href="@Url.Action("TrackClaims", "Lecturer", new { lecturerName = User.Identity.Name })" class="btn btn-primary">Track Claims</a>
+        </div>
+    </div>
+</div>

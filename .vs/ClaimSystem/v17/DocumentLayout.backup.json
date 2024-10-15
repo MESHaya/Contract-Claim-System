@@ -3,20 +3,28 @@
   "WorkspaceRootPath": "C:\\Users\\meshaya\\source\\repos\\ClaimSystem\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{71BF6CB3-C295-4A6F-8CBA-EAD922C8C833}|ClaimSystem\\ClaimSystem.csproj|c:\\users\\meshaya\\source\\repos\\claimsystem\\claimsystem\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{71BF6CB3-C295-4A6F-8CBA-EAD922C8C833}|ClaimSystem\\ClaimSystem.csproj|solutionrelative:claimsystem\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{71BF6CB3-C295-4A6F-8CBA-EAD922C8C833}|ClaimSystem\\ClaimSystem.csproj|c:\\users\\meshaya\\source\\repos\\claimsystem\\claimsystem\\views\\lecturer\\lecturerdash.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{71BF6CB3-C295-4A6F-8CBA-EAD922C8C833}|ClaimSystem\\ClaimSystem.csproj|solutionrelative:claimsystem\\views\\lecturer\\lecturerdash.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{71BF6CB3-C295-4A6F-8CBA-EAD922C8C833}|ClaimSystem\\ClaimSystem.csproj|c:\\users\\meshaya\\source\\repos\\claimsystem\\claimsystem\\views\\home\\createclaim.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{71BF6CB3-C295-4A6F-8CBA-EAD922C8C833}|ClaimSystem\\ClaimSystem.csproj|solutionrelative:claimsystem\\views\\home\\createclaim.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{71BF6CB3-C295-4A6F-8CBA-EAD922C8C833}|ClaimSystem\\ClaimSystem.csproj|c:\\users\\meshaya\\source\\repos\\claimsystem\\claimsystem\\views\\lecturer\\trackclaims.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{71BF6CB3-C295-4A6F-8CBA-EAD922C8C833}|ClaimSystem\\ClaimSystem.csproj|solutionrelative:claimsystem\\views\\lecturer\\trackclaims.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{71BF6CB3-C295-4A6F-8CBA-EAD922C8C833}|ClaimSystem\\ClaimSystem.csproj|c:\\users\\meshaya\\source\\repos\\claimsystem\\claimsystem\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{71BF6CB3-C295-4A6F-8CBA-EAD922C8C833}|ClaimSystem\\ClaimSystem.csproj|solutionrelative:claimsystem\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{71BF6CB3-C295-4A6F-8CBA-EAD922C8C833}|ClaimSystem\\ClaimSystem.csproj|c:\\users\\meshaya\\source\\repos\\claimsystem\\claimsystem\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{71BF6CB3-C295-4A6F-8CBA-EAD922C8C833}|ClaimSystem\\ClaimSystem.csproj|solutionrelative:claimsystem\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{71BF6CB3-C295-4A6F-8CBA-EAD922C8C833}|ClaimSystem\\ClaimSystem.csproj|c:\\users\\meshaya\\source\\repos\\claimsystem\\claimsystem\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{71BF6CB3-C295-4A6F-8CBA-EAD922C8C833}|ClaimSystem\\ClaimSystem.csproj|solutionrelative:claimsystem\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{71BF6CB3-C295-4A6F-8CBA-EAD922C8C833}|ClaimSystem\\ClaimSystem.csproj|c:\\users\\meshaya\\source\\repos\\claimsystem\\claimsystem\\views\\lecturer\\claimhistory.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{71BF6CB3-C295-4A6F-8CBA-EAD922C8C833}|ClaimSystem\\ClaimSystem.csproj|solutionrelative:claimsystem\\views\\lecturer\\claimhistory.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{71BF6CB3-C295-4A6F-8CBA-EAD922C8C833}|ClaimSystem\\ClaimSystem.csproj|c:\\users\\meshaya\\source\\repos\\claimsystem\\claimsystem\\views\\lecturer\\claim.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{71BF6CB3-C295-4A6F-8CBA-EAD922C8C833}|ClaimSystem\\ClaimSystem.csproj|solutionrelative:claimsystem\\views\\lecturer\\claim.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{71BF6CB3-C295-4A6F-8CBA-EAD922C8C833}|ClaimSystem\\ClaimSystem.csproj|c:\\users\\meshaya\\source\\repos\\claimsystem\\claimsystem\\models\\claims.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -27,12 +35,20 @@
       "RelativeMoniker": "D:0:0:{71BF6CB3-C295-4A6F-8CBA-EAD922C8C833}|ClaimSystem\\ClaimSystem.csproj|solutionrelative:claimsystem\\models\\claimdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{71BF6CB3-C295-4A6F-8CBA-EAD922C8C833}|ClaimSystem\\ClaimSystem.csproj|c:\\users\\meshaya\\source\\repos\\claimsystem\\claimsystem\\views\\home\\claim.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{71BF6CB3-C295-4A6F-8CBA-EAD922C8C833}|ClaimSystem\\ClaimSystem.csproj|solutionrelative:claimsystem\\views\\home\\claim.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{71BF6CB3-C295-4A6F-8CBA-EAD922C8C833}|ClaimSystem\\ClaimSystem.csproj|c:\\users\\meshaya\\source\\repos\\claimsystem\\claimsystem\\controllers\\lecturercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{71BF6CB3-C295-4A6F-8CBA-EAD922C8C833}|ClaimSystem\\ClaimSystem.csproj|solutionrelative:claimsystem\\controllers\\lecturercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{71BF6CB3-C295-4A6F-8CBA-EAD922C8C833}|ClaimSystem\\ClaimSystem.csproj|c:\\users\\meshaya\\source\\repos\\claimsystem\\claimsystem\\views\\home\\privacy.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{71BF6CB3-C295-4A6F-8CBA-EAD922C8C833}|ClaimSystem\\ClaimSystem.csproj|solutionrelative:claimsystem\\views\\home\\privacy.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{71BF6CB3-C295-4A6F-8CBA-EAD922C8C833}|ClaimSystem\\ClaimSystem.csproj|c:\\users\\meshaya\\source\\repos\\claimsystem\\claimsystem\\views\\lecturer\\createclaim.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{71BF6CB3-C295-4A6F-8CBA-EAD922C8C833}|ClaimSystem\\ClaimSystem.csproj|solutionrelative:claimsystem\\views\\lecturer\\createclaim.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{71BF6CB3-C295-4A6F-8CBA-EAD922C8C833}|ClaimSystem\\ClaimSystem.csproj|c:\\users\\meshaya\\source\\repos\\claimsystem\\claimsystem\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{71BF6CB3-C295-4A6F-8CBA-EAD922C8C833}|ClaimSystem\\ClaimSystem.csproj|solutionrelative:claimsystem\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{71BF6CB3-C295-4A6F-8CBA-EAD922C8C833}|ClaimSystem\\ClaimSystem.csproj|c:\\users\\meshaya\\source\\repos\\claimsystem\\claimsystem\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -46,8 +62,34 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 1,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "ClaimDbContext.cs",
+              "DocumentMoniker": "C:\\Users\\meshaya\\source\\repos\\ClaimSystem\\ClaimSystem\\Models\\ClaimDbContext.cs",
+              "RelativeDocumentMoniker": "ClaimSystem\\Models\\ClaimDbContext.cs",
+              "ToolTip": "C:\\Users\\meshaya\\source\\repos\\ClaimSystem\\ClaimSystem\\Models\\ClaimDbContext.cs",
+              "RelativeToolTip": "ClaimSystem\\Models\\ClaimDbContext.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-15T06:17:01.563Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "LecturerDash.cshtml",
+              "DocumentMoniker": "C:\\Users\\meshaya\\source\\repos\\ClaimSystem\\ClaimSystem\\Views\\Lecturer\\LecturerDash.cshtml",
+              "RelativeDocumentMoniker": "ClaimSystem\\Views\\Lecturer\\LecturerDash.cshtml",
+              "ToolTip": "C:\\Users\\meshaya\\source\\repos\\ClaimSystem\\ClaimSystem\\Views\\Lecturer\\LecturerDash.cshtml",
+              "RelativeToolTip": "ClaimSystem\\Views\\Lecturer\\LecturerDash.cshtml",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-10-15T11:59:55.031Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Document",
               "DocumentIndex": 2,
@@ -56,87 +98,131 @@
               "RelativeDocumentMoniker": "ClaimSystem\\Views\\Home\\Index.cshtml",
               "ToolTip": "C:\\Users\\meshaya\\source\\repos\\ClaimSystem\\ClaimSystem\\Views\\Home\\Index.cshtml",
               "RelativeToolTip": "ClaimSystem\\Views\\Home\\Index.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-10-15T09:57:27.93Z"
+              "WhenOpened": "2024-10-15T09:57:27.93Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "ClaimDbContext.cs",
-              "DocumentMoniker": "C:\\Users\\meshaya\\source\\repos\\ClaimSystem\\ClaimSystem\\Models\\ClaimDbContext.cs",
-              "RelativeDocumentMoniker": "ClaimSystem\\Models\\ClaimDbContext.cs",
-              "ToolTip": "C:\\Users\\meshaya\\source\\repos\\ClaimSystem\\ClaimSystem\\Models\\ClaimDbContext.cs",
-              "RelativeToolTip": "ClaimSystem\\Models\\ClaimDbContext.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAKAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-15T06:17:01.563Z"
+              "DocumentIndex": 9,
+              "Title": "Privacy.cshtml",
+              "DocumentMoniker": "C:\\Users\\meshaya\\source\\repos\\ClaimSystem\\ClaimSystem\\Views\\Home\\Privacy.cshtml",
+              "RelativeDocumentMoniker": "ClaimSystem\\Views\\Home\\Privacy.cshtml",
+              "ToolTip": "C:\\Users\\meshaya\\source\\repos\\ClaimSystem\\ClaimSystem\\Views\\Home\\Privacy.cshtml",
+              "RelativeToolTip": "ClaimSystem\\Views\\Home\\Privacy.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB4AAAAcAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-10-14T12:04:53.665Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 3,
               "Title": "HomeController.cs",
               "DocumentMoniker": "C:\\Users\\meshaya\\source\\repos\\ClaimSystem\\ClaimSystem\\Controllers\\HomeController.cs",
               "RelativeDocumentMoniker": "ClaimSystem\\Controllers\\HomeController.cs",
               "ToolTip": "C:\\Users\\meshaya\\source\\repos\\ClaimSystem\\ClaimSystem\\Controllers\\HomeController.cs",
               "RelativeToolTip": "ClaimSystem\\Controllers\\HomeController.cs",
-              "ViewState": "AgIAAB0AAAAAAAAAAAAAAC8AAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAABgAAAAHAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-14T11:32:35.692Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "_Layout.cshtml",
-              "DocumentMoniker": "C:\\Users\\meshaya\\source\\repos\\ClaimSystem\\ClaimSystem\\Views\\Shared\\_Layout.cshtml",
-              "RelativeDocumentMoniker": "ClaimSystem\\Views\\Shared\\_Layout.cshtml",
-              "ToolTip": "C:\\Users\\meshaya\\source\\repos\\ClaimSystem\\ClaimSystem\\Views\\Shared\\_Layout.cshtml",
-              "RelativeToolTip": "ClaimSystem\\Views\\Shared\\_Layout.cshtml",
-              "ViewState": "AgIAAB8AAAAAAAAAAADwvzcAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 5,
+              "Title": "Claim.cshtml",
+              "DocumentMoniker": "C:\\Users\\meshaya\\source\\repos\\ClaimSystem\\ClaimSystem\\Views\\Lecturer\\Claim.cshtml",
+              "RelativeDocumentMoniker": "ClaimSystem\\Views\\Lecturer\\Claim.cshtml",
+              "ToolTip": "C:\\Users\\meshaya\\source\\repos\\ClaimSystem\\ClaimSystem\\Views\\Lecturer\\Claim.cshtml",
+              "RelativeToolTip": "ClaimSystem\\Views\\Lecturer\\Claim.cshtml",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAAAAQAAAAXAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-10-14T11:30:02.448Z"
+              "WhenOpened": "2024-10-15T09:51:19.29Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "ClaimHistory.cshtml",
+              "DocumentMoniker": "C:\\Users\\meshaya\\source\\repos\\ClaimSystem\\ClaimSystem\\Views\\Lecturer\\ClaimHistory.cshtml",
+              "RelativeDocumentMoniker": "ClaimSystem\\Views\\Lecturer\\ClaimHistory.cshtml",
+              "ToolTip": "C:\\Users\\meshaya\\source\\repos\\ClaimSystem\\ClaimSystem\\Views\\Lecturer\\ClaimHistory.cshtml",
+              "RelativeToolTip": "ClaimSystem\\Views\\Lecturer\\ClaimHistory.cshtml",
+              "ViewState": "AgIAABIAAAAAAAAAAAAAACAAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-10-15T12:09:37.966Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Claims.cs",
+              "DocumentMoniker": "C:\\Users\\meshaya\\source\\repos\\ClaimSystem\\ClaimSystem\\Models\\Claims.cs",
+              "RelativeDocumentMoniker": "ClaimSystem\\Models\\Claims.cs",
+              "ToolTip": "C:\\Users\\meshaya\\source\\repos\\ClaimSystem\\ClaimSystem\\Models\\Claims.cs",
+              "RelativeToolTip": "ClaimSystem\\Models\\Claims.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAXAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-14T18:49:29.695Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
+              "Title": "TrackClaims.cshtml",
+              "DocumentMoniker": "C:\\Users\\meshaya\\source\\repos\\ClaimSystem\\ClaimSystem\\Views\\Lecturer\\TrackClaims.cshtml",
+              "RelativeDocumentMoniker": "ClaimSystem\\Views\\Lecturer\\TrackClaims.cshtml",
+              "ToolTip": "C:\\Users\\meshaya\\source\\repos\\ClaimSystem\\ClaimSystem\\Views\\Lecturer\\TrackClaims.cshtml",
+              "RelativeToolTip": "ClaimSystem\\Views\\Lecturer\\TrackClaims.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-10-15T12:10:09.254Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "LecturerController.cs",
+              "DocumentMoniker": "C:\\Users\\meshaya\\source\\repos\\ClaimSystem\\ClaimSystem\\Controllers\\LecturerController.cs",
+              "RelativeDocumentMoniker": "ClaimSystem\\Controllers\\LecturerController.cs",
+              "ToolTip": "C:\\Users\\meshaya\\source\\repos\\ClaimSystem\\ClaimSystem\\Controllers\\LecturerController.cs",
+              "RelativeToolTip": "ClaimSystem\\Controllers\\LecturerController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-15T11:53:11.294Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
               "Title": "CreateClaim.cshtml",
-              "DocumentMoniker": "C:\\Users\\meshaya\\source\\repos\\ClaimSystem\\ClaimSystem\\Views\\Home\\CreateClaim.cshtml",
-              "RelativeDocumentMoniker": "ClaimSystem\\Views\\Home\\CreateClaim.cshtml",
-              "ToolTip": "C:\\Users\\meshaya\\source\\repos\\ClaimSystem\\ClaimSystem\\Views\\Home\\CreateClaim.cshtml",
-              "RelativeToolTip": "ClaimSystem\\Views\\Home\\CreateClaim.cshtml",
-              "ViewState": "AgIAABQAAAAAAAAAAAAAACUAAABCAAAAAAAAAA==",
+              "DocumentMoniker": "C:\\Users\\meshaya\\source\\repos\\ClaimSystem\\ClaimSystem\\Views\\Lecturer\\CreateClaim.cshtml",
+              "RelativeDocumentMoniker": "ClaimSystem\\Views\\Lecturer\\CreateClaim.cshtml",
+              "ToolTip": "C:\\Users\\meshaya\\source\\repos\\ClaimSystem\\ClaimSystem\\Views\\Lecturer\\CreateClaim.cshtml",
+              "RelativeToolTip": "ClaimSystem\\Views\\Lecturer\\CreateClaim.cshtml",
+              "ViewState": "AgIAAAUAAAAAAAAAAAAAAAwAAAA9AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2024-10-15T09:51:31.581Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "Claim.cshtml",
-              "DocumentMoniker": "C:\\Users\\meshaya\\source\\repos\\ClaimSystem\\ClaimSystem\\Views\\Home\\Claim.cshtml",
-              "RelativeDocumentMoniker": "ClaimSystem\\Views\\Home\\Claim.cshtml",
-              "ToolTip": "C:\\Users\\meshaya\\source\\repos\\ClaimSystem\\ClaimSystem\\Views\\Home\\Claim.cshtml",
-              "RelativeToolTip": "ClaimSystem\\Views\\Home\\Claim.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAXAAAAAAAAAA==",
+              "DocumentIndex": 11,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "C:\\Users\\meshaya\\source\\repos\\ClaimSystem\\ClaimSystem\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "ClaimSystem\\Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "C:\\Users\\meshaya\\source\\repos\\ClaimSystem\\ClaimSystem\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "ClaimSystem\\Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AgIAABAAAAAAAAAAAADwvxkAAABeAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-10-15T09:51:19.29Z"
+              "WhenOpened": "2024-10-14T11:30:02.448Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Claims.cs",
-              "DocumentMoniker": "C:\\Users\\meshaya\\source\\repos\\ClaimSystem\\ClaimSystem\\Models\\Claims.cs",
-              "RelativeDocumentMoniker": "ClaimSystem\\Models\\Claims.cs",
-              "ToolTip": "C:\\Users\\meshaya\\source\\repos\\ClaimSystem\\ClaimSystem\\Models\\Claims.cs",
-              "RelativeToolTip": "ClaimSystem\\Models\\Claims.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAVAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-14T18:49:29.695Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 12,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\meshaya\\source\\repos\\ClaimSystem\\ClaimSystem\\Program.cs",
               "RelativeDocumentMoniker": "ClaimSystem\\Program.cs",
@@ -145,18 +231,6 @@
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAA2AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-14T20:44:28.751Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "Privacy.cshtml",
-              "DocumentMoniker": "C:\\Users\\meshaya\\source\\repos\\ClaimSystem\\ClaimSystem\\Views\\Home\\Privacy.cshtml",
-              "RelativeDocumentMoniker": "ClaimSystem\\Views\\Home\\Privacy.cshtml",
-              "ToolTip": "C:\\Users\\meshaya\\source\\repos\\ClaimSystem\\ClaimSystem\\Views\\Home\\Privacy.cshtml",
-              "RelativeToolTip": "ClaimSystem\\Views\\Home\\Privacy.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB4AAAAcAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-10-14T12:04:53.665Z"
             }
           ]
         }

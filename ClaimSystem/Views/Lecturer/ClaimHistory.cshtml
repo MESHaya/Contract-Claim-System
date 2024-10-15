@@ -1,0 +1,35 @@
+﻿@model IEnumerable<ClaimSystem.Models.Claims>
+
+@{
+    ViewData["Title"] = "Claim History";
+}
+
+<h2>Claim History</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Claim ID</th>
+            <th>Lecturer Name</th>
+            <th>Hours Worked</th>
+            <th>Hourly Rate</th>
+            <th>Notes</th>
+            <th>Status</th>
+            <th>Submission Date</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var claim in Model)
+        {
+            <tr>
+                <td>@claim.Id</td>
+                <td>@claim.LecturerName</td>
+                <td>@claim.HoursWorked</td>
+                <td>@claim.HourlyRate</td>
+                <td>@claim.Notes</td>
+                <td>@claim.Status</td>
+                <td>@claim. DateSubmitted.ToString("dd/MM/yyyy")</td>
+            </tr>
+        }
+    </tbody>
+</table>
