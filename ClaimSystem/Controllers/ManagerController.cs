@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace ClaimSystem.Controllers
 {
     public class ManagerController : Controller
-    {
+    { 
         private readonly ILogger<ManagerController> _logger;
 
         private readonly ClaimDbContext _context;
