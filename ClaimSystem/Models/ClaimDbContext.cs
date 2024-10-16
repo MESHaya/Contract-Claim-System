@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 
 namespace ClaimSystem.Models
 {
-    public class ClaimDbContext : DbContext
+    public class ClaimDbContext : IdentityDbContext<IdentityUser, IdentityRole, string>
     {
         public DbSet<Claims> Claim { get; set; }//database table 
 
