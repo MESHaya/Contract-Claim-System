@@ -1,5 +1,7 @@
 ﻿using ClaimSystem.Models;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 
 namespace ClaimSystem.Models
 {
@@ -16,3 +18,4 @@ namespace ClaimSystem.Models
 
     }
 }
+

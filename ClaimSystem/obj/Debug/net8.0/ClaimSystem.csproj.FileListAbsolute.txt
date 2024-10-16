@@ -40,3 +40,9 @@ C:\Users\meshaya\source\repos\ClaimSystem\ClaimSystem\bin\Debug\net8.0\Microsoft
 C:\Users\meshaya\source\repos\ClaimSystem\ClaimSystem\bin\Debug\net8.0\Microsoft.Extensions.Options.dll
 C:\Users\meshaya\source\repos\ClaimSystem\ClaimSystem\obj\Debug\net8.0\ClaimSystem.csproj.AssemblyReference.cache
 C:\Users\meshaya\source\repos\ClaimSystem\ClaimSystem\obj\Debug\net8.0\ClaimSys.14D79A33.Up2Date
+C:\Users\meshaya\source\repos\ClaimSystem\ClaimSystem\bin\Debug\net8.0\Microsoft.AspNetCore.Cryptography.Internal.dll
+C:\Users\meshaya\source\repos\ClaimSystem\ClaimSystem\bin\Debug\net8.0\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+C:\Users\meshaya\source\repos\ClaimSystem\ClaimSystem\bin\Debug\net8.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+C:\Users\meshaya\source\repos\ClaimSystem\ClaimSystem\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Relational.dll
+C:\Users\meshaya\source\repos\ClaimSystem\ClaimSystem\bin\Debug\net8.0\Microsoft.Extensions.Identity.Core.dll
+C:\Users\meshaya\source\repos\ClaimSystem\ClaimSystem\bin\Debug\net8.0\Microsoft.Extensions.Identity.Stores.dll

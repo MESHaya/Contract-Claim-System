@@ -1,0 +1,46 @@
+﻿@{
+    ViewData["Title"] = "Programme Coordinator Dashboard";
+}
+
+@model IEnumerable<ClaimSystem.Models.Claims>
+
+<h2>Programme Coordinator Dashboard</h2>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Claim ID</th>
+            <th>Lecturer Name</th>
+            <th>Hours Worked</th>
+            <th>Hourly Rate</th>
+            <th>Total Amount</th>
+            <th>Notes</th>
+            <th>Status</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var claim in Model)
+        {
+            <tr>
+                <td>@claim.Id</td>
+                <td>@claim.LecturerName</td>
+                <td>@claim.HoursWorked</td>
+                <td>@claim.HourlyRate</td>
+                <td>@(claim.HoursWorked * claim.HourlyRate)</td>
+                <td>@claim.Notes</td>
+                <td>@claim.Status</td>
+                <td>
+                    <form asp-action="ApproveClaim" asp-controller="Programme" method="post" style="display:inline-block;">
+                        <input type="hidden" name="claimId" value="@claim.Id" />
+                        <button type="submit" class="btn btn-success">Approve</button>
+                    </form>
+                    <form asp-action="RejectClaim" asp-controller="Programme" method="post" style="display:inline-block;">
+                        <input type="hidden" name="claimId" value="@claim.Id" />
+                        <button type="submit" class="btn btn-danger">Reject</button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

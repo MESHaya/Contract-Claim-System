@@ -1,4 +1,5 @@
 using ClaimSystem.Models;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
 namespace ClaimSystem
@@ -13,7 +14,10 @@ namespace ClaimSystem
             builder.Services.AddControllersWithViews();
 
             builder.Services.AddDbContext<ClaimDbContext>(options =>
-            options.UseInMemoryDatabase("claimsDb")); 
+            options.UseInMemoryDatabase("claimsDb"));
+
+           
+
 
             var app = builder.Build();
 
@@ -38,5 +42,7 @@ namespace ClaimSystem
 
             app.Run();
         }
+
+
     }
 }

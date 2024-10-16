@@ -18,10 +18,6 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = C:\Users\meshaya\source\repos\ClaimSystem\ClaimSystem
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/meshaya/source/repos/ClaimSystem/ClaimSystem/Views/Claims.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xhaW1zLmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
 [C:/Users/meshaya/source/repos/ClaimSystem/ClaimSystem/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
@@ -48,6 +44,14 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/meshaya/source/repos/ClaimSystem/ClaimSystem/Views/Lecturer/TrackClaims.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTGVjdHVyZXJcVHJhY2tDbGFpbXMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/meshaya/source/repos/ClaimSystem/ClaimSystem/Views/Manager/Academic_Manager_Dash.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFuYWdlclxBY2FkZW1pY19NYW5hZ2VyX0Rhc2guY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/meshaya/source/repos/ClaimSystem/ClaimSystem/Views/Programme/Programme_Coordinator_Dash.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZ3JhbW1lXFByb2dyYW1tZV9Db29yZGluYXRvcl9EYXNoLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/meshaya/source/repos/ClaimSystem/ClaimSystem/Views/Shared/Error.cshtml]
