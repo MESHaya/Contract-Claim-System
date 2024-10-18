@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "DcrkoidCMNnnW52EQUojR5F9i4mz0Q+imKiOIvXtyAU=",
+  "Hash": "Pk6LbFHwymJyjxJvx/wB2kwra7m9CFxurcqi/MQo3t8=",
   "Source": "ClaimSystem",
   "BasePath": "_content/ClaimSystem",
   "Mode": "Default",
@@ -1193,6 +1193,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
+    },
+    {
+      "Identity": "C:\\Users\\meshaya\\source\\repos\\ClaimSystem\\ClaimSystem\\wwwroot\\uploads\\WEDE6021.pdf",
+      "SourceId": "ClaimSystem",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\meshaya\\source\\repos\\ClaimSystem\\ClaimSystem\\wwwroot\\",
+      "BasePath": "_content/ClaimSystem",
+      "RelativePath": "uploads/WEDE6021.pdf",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\WEDE6021.pdf"
     }
   ]
 }

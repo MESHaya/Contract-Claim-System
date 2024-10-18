@@ -36,11 +36,17 @@
                 <td>
                     @if (!string.IsNullOrEmpty(claim.FileName))
                     {
-                        <a href="/uploads/@claim.FileName" target="_blank">View File</a>
+                        var fileNames = claim.FileName.Split(',');
+                        foreach (var fileName in fileNames)
+                        {
+                            <a href="@Url.Content("~/uploads/" + fileName)" target="_blank">@fileName</a>
+
+                            <br />
+                        }
                     }
                     else
                     {
-                        <span>No file uploaded</span>
+                        <span>No files uploaded</span>
                     }
                 </td>
                 <td>

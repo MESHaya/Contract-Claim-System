@@ -10,7 +10,7 @@
 
 </div>
 
-<form asp-action="CreateClaimForm" asp-controller="Lecturer">
+<form asp-action="CreateClaimForm" asp-controller="Lecturer" enctype="multipart/form-data">
 
     <div class="form-group">
         <label for="LecturerName">Claim Name</label>
@@ -35,7 +35,7 @@
 
     <div class="form-group">
         <label for="Files">Supporting Documents</label>
-        <input type="file" id="myFile" asp-for="FileName" multiple>
+        <input type="file" id="myFile" name="files" multiple class="form-control" multiple>
 
     </div>
 

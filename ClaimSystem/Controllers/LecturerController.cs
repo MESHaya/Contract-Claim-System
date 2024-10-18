@@ -35,34 +35,33 @@ namespace ClaimSystem.Controllers
         }
 
         [HttpPost]
+    
         public async Task<IActionResult> CreateClaimForm(Claims model, List<IFormFile> files)
         {
             model.Status = "Pending";
 
             if (files != null && files.Count > 0)
             {
+                List<string> fileNames = new List<string>();
+
                 foreach (var file in files)
                 {
                     if (file.Length > 0)
                     {
-                        // Generate a unique file name
-                        var fileName = Path.GetFileNameWithoutExtension(file.FileName);
-                        var extension = Path.GetExtension(file.FileName);
-                        var uniqueFileName = $"{fileName}_{Guid.NewGuid()}{extension}";
+                        var filePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/uploads", file.FileName);
 
-                        // Path to save the file
-                        var path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/uploads", uniqueFileName);
-
-                        // Save file to the directory
-                        using (var stream = new FileStream(path, FileMode.Create))
+                        using (var stream = new FileStream(filePath, FileMode.Create))
                         {
                             await file.CopyToAsync(stream);
                         }
 
-                        // Store the file information in the database (assuming you have a field for FileName in Claims model)
-                        model.FileName = uniqueFileName;
+                        // Save the file name or path to the list
+                        fileNames.Add(file.FileName);
                     }
                 }
+
+                // Store the file names (or full paths) in the model
+                model.FileName = string.Join(",", fileNames);  // Assuming FileName is a string in the Claims model
             }
 
             _context.Claim.Add(model);
@@ -70,6 +69,8 @@ namespace ClaimSystem.Controllers
 
             return RedirectToAction("LecturerDash");
         }
+
+
 
         // GET: Track Claims (filtered by status)
         public IActionResult TrackClaims(string lecturerName)
