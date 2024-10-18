@@ -10,7 +10,7 @@
     <thead>
         <tr>
             <th>Claim ID</th>
-            <th>Lecturer Name</th>
+            <th>Claim Name</th>
             <th>Hours Worked</th>
             <th>Hourly Rate</th>
             <th>Notes</th>
@@ -22,7 +22,7 @@
         {
             <tr>
                 <td>@claim.Id</td>
-                <td>@claim.LecturerName</td>
+                <td>@claim.ClaimName</td>
                 <td>@claim.HoursWorked</td>
                 <td>@claim.HourlyRate</td>
                 <td>@claim.Notes</td>
@@ -31,3 +31,10 @@
         }
     </tbody>
 </table>
+<div class="card">
+    <div class="card-body text-center">
+        <form asp-controller="Lecturer" asp-action="LecturerDash" method="post" style="display:inline;">
+            <button type="submit" class="btn btn-danger">Back</button>
+        </form>
+    </div>
+</div>

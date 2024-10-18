@@ -47,7 +47,7 @@ namespace ClaimSystem
             // Map routes
             app.MapControllerRoute(
                 name: "default",
-                pattern: "{controller=Home}/{action=Index}/{id?}");
+                pattern: "{controller=Account}/{action=Login}/{id?}");
 
             // Seed data for testing
             using (var scope = app.Services.CreateScope())

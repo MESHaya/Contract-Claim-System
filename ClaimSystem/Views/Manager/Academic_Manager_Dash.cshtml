@@ -11,11 +11,12 @@
     <thead>
         <tr>
             <th>Claim ID</th>
-            <th>Lecturer Name</th>
+            <th>Claim Name</th>
             <th>Hours Worked</th>
             <th>Hourly Rate</th>
             <th>Total Amount</th>
             <th>Notes</th>
+            <th>Files</th>
             <th>Status</th>
             <th>Actions</th>
         </tr>
@@ -25,12 +26,23 @@
         {
             <tr>
                 <td>@claim.Id</td>
-                <td>@claim.LecturerName</td>
+                <td>@claim.ClaimName</td>
                 <td>@claim.HoursWorked</td>
                 <td>@claim.HourlyRate</td>
                 <td>@(claim.HoursWorked * claim.HourlyRate)</td>
                 <td>@claim.Notes</td>
+                <td>@claim.FileName</td>
                 <td>@claim.Status</td>
+                <td>
+                    @if (!string.IsNullOrEmpty(claim.FileName))
+                    {
+                        <a href="/uploads/@claim.FileName" target="_blank">View File</a>
+                    }
+                    else
+                    {
+                        <span>No file uploaded</span>
+                    }
+                </td>
                 <td>
                     <form asp-action="ApproveClaim" asp-controller="Manager" method="post" style="display:inline-block;">
                         <input type="hidden" name="claimId" value="@claim.Id" />
@@ -44,4 +56,12 @@
             </tr>
         }
     </tbody>
+   
 </table>
+<div class="card">
+    <div class="card-body text-center">
+        <form asp-controller="Account" asp-action="Logout" method="post" style="display:inline;">
+            <button type="submit" class="btn btn-secondary">Logout</button>
+        </form>
+    </div>
+</div>

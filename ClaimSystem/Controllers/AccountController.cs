@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
+using SpendSmart.Controllers;
 using System.Threading.Tasks;
 
 namespace ClaimSystem.Controllers
@@ -9,8 +11,11 @@ namespace ClaimSystem.Controllers
         private readonly SignInManager<IdentityUser> _signInManager;
         private readonly UserManager<IdentityUser> _userManager;
 
-        public AccountController(SignInManager<IdentityUser> signInManager, UserManager<IdentityUser> userManager)
+        private readonly ILogger<AccountController> _logger;
+
+        public AccountController(SignInManager<IdentityUser> signInManager, ILogger<AccountController> logger, UserManager<IdentityUser> userManager)
         {
+            _logger = logger;
             _signInManager = signInManager;
             _userManager = userManager;
         }
@@ -29,13 +34,35 @@ namespace ClaimSystem.Controllers
 
             if (result.Succeeded)
             {
-                return RedirectToAction("Index", "Home");
+                // Find the user by username
+                var user = await _userManager.FindByNameAsync(username);
+                if (user != null)
+                {
+                    // Get the user's roles
+                    var roles = await _userManager.GetRolesAsync(user);
+                    // Redirect based on the role
+                    if (roles.Contains("Lecturer"))
+                    {
+                        return RedirectToAction("LecturerDash", "Lecturer"); // Redirect to Lecturer dashboard
+                    }
+                    else if (roles.Contains("Academic Manager"))
+                    {
+                        return RedirectToAction("Academic_Manager_Dash", "Manager"); 
+                    }
+                    else if (roles.Contains("Programme Coordinator"))
+                    {
+                        return RedirectToAction("Programme_Coordinator_Dash", "Programme"); 
+                    }
+                }
             }
             else
             {
                 ModelState.AddModelError(string.Empty, "Invalid login attempt.");
                 return View();
             }
+
+            // Fallback in case no role matched
+            return RedirectToAction("Index", "Home");
         }
 
         // Handle logout

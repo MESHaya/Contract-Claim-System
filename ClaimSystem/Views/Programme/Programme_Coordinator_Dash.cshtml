@@ -24,7 +24,7 @@
         {
             <tr>
                 <td>@claim.Id</td>
-                <td>@claim.LecturerName</td>
+                <td>@claim.ClaimName</td>
                 <td>@claim.HoursWorked</td>
                 <td>@claim.HourlyRate</td>
                 <td>@(claim.HoursWorked * claim.HourlyRate)</td>
@@ -44,3 +44,10 @@
         }
     </tbody>
 </table>
+<div class="card">
+    <div class="card-body text-center">
+        <form asp-controller="Account" asp-action="Logout" method="post" style="display:inline;">
+            <button type="submit" class="btn btn-danger">Logout</button>
+        </form>
+    </div>
+</div>

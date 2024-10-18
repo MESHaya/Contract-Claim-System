@@ -4,6 +4,9 @@
 
 <h2>Lecturer Dashboard</h2>
 
+
+
+
 <div class="card-deck">
     <div class="card">
         <div class="card-body text-center">
@@ -28,4 +31,16 @@
             <a href="@Url.Action("TrackClaims", "Lecturer", new { lecturerName = User.Identity.Name })" class="btn btn-primary">Track Claims</a>
         </div>
     </div>
+
+    <div class="card">
+        <div class="card-body text-center">
+            <form asp-controller="Account" asp-action="Logout" method="post" style="display:inline;">
+                <button type="submit" class="btn btn-secondary">Logout</button>
+            </form>
 </div>
+</div>
+
+ 
+</div>
+
+

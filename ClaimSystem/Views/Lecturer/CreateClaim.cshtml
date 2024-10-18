@@ -13,8 +13,8 @@
 <form asp-action="CreateClaimForm" asp-controller="Lecturer">
 
     <div class="form-group">
-        <label for="LecturerName">Lecturer Name</label>
-        <input type="text" class="form-control" id="LecturerName" placeholder="Name" asp-for="LecturerName" required />
+        <label for="LecturerName">Claim Name</label>
+        <input type="text" class="form-control" id="ClaimName" placeholder="Name" asp-for="ClaimName" required />
     </div>
 
     <div class="form-group">
@@ -42,3 +42,10 @@
 
     <button type="submit" class="btn btn-primary">Submit</button>
 </form>
+<div class="card">
+    <div class="card-body text-center">
+        <form asp-controller="Lecturer" asp-action="LecturerDash" method="post" style="display:inline;">
+            <button type="submit" class="btn btn-secondary">Back</button>
+        </form>
+    </div>
+</div>

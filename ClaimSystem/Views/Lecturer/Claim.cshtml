@@ -22,11 +22,18 @@
             {
                 <tr>
                     <td>@claim.Id</td>
-                    <td>@claim.LecturerName</td>
+                    <td>@claim.ClaimName</td>
                     <td>@claim.Status</td>
                     <td>@claim.DateSubmitted.ToString("MM/dd/yyyy")</td>
                 </tr>
             }
         </tbody>
     </table>
+</div>
+<div class="card">
+    <div class="card-body text-center">
+        <form asp-controller="Lecturer" asp-action="LecturerDash" method="post" style="display:inline;">
+            <button type="submit" class="btn btn-secondary">Back</button>
+        </form>
+    </div>
 </div>
