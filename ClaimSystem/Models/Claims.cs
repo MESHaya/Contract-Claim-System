@@ -8,7 +8,8 @@ namespace ClaimSystem.Models
         public int StatusId { get; set; }
 
         public string LecturerName { get; set; }
-        
+
+
         public decimal HoursWorked { get; set; }  // Hours worked
         public decimal HourlyRate { get; set; }  // Hourly rate of the lecturer
         public string? Notes { get; set; }  // Optional additional notes

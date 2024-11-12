@@ -10,6 +10,11 @@
 
 </div>
 
+<div>
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+</div>
+
+
 <form asp-action="CreateClaimForm" asp-controller="Lecturer" enctype="multipart/form-data">
 
     <div class="form-group">
@@ -21,12 +26,12 @@
 
     <div class="form-group">
         <label for="HoursWorked">Hours Worked</label>
-        <input type="number" class="form-control" id="HoursWorked" placeholder="0" asp-for="HoursWorked" required />
+        <input type="number" class="form-control" id="HoursWorked" placeholder="0" asp-for="HoursWorked" required min="0" />
     </div>
 
     <div class="form-group">
         <label for="HourlyRate">Hourly Rate</label>
-        <input type="number" step="0.01" class="form-control" id="HourlyRate" placeholder="0" asp-for="HourlyRate" required />
+        <input type="number" step="0.01" class="form-control" id="HourlyRate" placeholder="0" asp-for="HourlyRate" required min ="0" />
     </div>
 
     <div class="form-group">

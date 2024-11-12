@@ -38,6 +38,21 @@ namespace ClaimSystem.Controllers
     
         public async Task<IActionResult> CreateClaimForm(Claims model, List<IFormFile> files)
         {
+            //check if numbers are positive 
+
+            if(model.HoursWorked <0)
+            {
+                ModelState.AddModelError("HoursWorked", "Cannot be negative"); 
+            } 
+            if(model.HourlyRate < 0)
+            {
+                ModelState.AddModelError("HourlyRate", "Cannot be negative");
+            }
+            if(ModelState.IsValid)
+            {
+                return View(model);
+            }
+
             model.Status = "Pending";
 
             if (files != null && files.Count > 0)
