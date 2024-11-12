@@ -27,17 +27,24 @@
     <div class="form-group">
         <label for="HoursWorked">Hours Worked</label>
         <input type="number" class="form-control" id="HoursWorked" placeholder="0" asp-for="HoursWorked" required min="0" />
+        @Html.ValidationMessageFor(model => model.HoursWorked, "", new { @class = "text-danger" })
     </div>
 
     <div class="form-group">
         <label for="HourlyRate">Hourly Rate</label>
         <input type="number" step="0.01" class="form-control" id="HourlyRate" placeholder="0" asp-for="HourlyRate" required min ="0" />
+        @Html.ValidationMessageFor(model => model.HourlyRate, "", new { @class = "text-danger" })
+    </div>
+    <div class="form-group">
+        <label for="TotalAmount">Total Claim Amount</label>
+        <input type="text" class="form-control" id="TotalAmount" readonly />
+    </div>
     </div>
 
     <div class="form-group">
         <label for="Notes">Additional Notes (Optional)</label>
         <textarea class="form-control" id="Notes" placeholder="Additional Notes" asp-for="Notes"></textarea>
-    </div>
+      
 
 
     <div class="form-group">
@@ -58,3 +65,60 @@
         </form>
     </div>
 </div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function () {
+        // Function to update Total Amount
+        function updateTotalAmount() {
+            var hoursWorked = parseFloat($('#HoursWorked').val());
+            var hourlyRate = parseFloat($('#HourlyRate').val());
+
+            if (isNaN(hoursWorked) || hoursWorked < 0) {
+                $('#HoursWorked').addClass('is-invalid');
+            } else {
+                $('#HoursWorked').removeClass('is-invalid');
+            }
+
+            if (isNaN(hourlyRate) || hourlyRate < 0) {
+                $('#HourlyRate').addClass('is-invalid');
+            } else {
+                $('#HourlyRate').removeClass('is-invalid');
+            }
+
+            if (!isNaN(hoursWorked) && hoursWorked >= 0 && !isNaN(hourlyRate) && hourlyRate >= 0) {
+                var totalAmount = hoursWorked * hourlyRate;
+                $('#TotalAmount').val(totalAmount.toFixed(2));
+            } else {
+                $('#TotalAmount').val('');
+            }
+        }
+
+        // Update total amount whenever the values change
+        $('#HoursWorked, #HourlyRate').on('input', function () {
+            updateTotalAmount();
+        });
+
+        // Form submission validation
+        $('#claimForm').on('submit', function (e) {
+            var valid = true;
+            var hoursWorked = parseFloat($('#HoursWorked').val());
+            var hourlyRate = parseFloat($('#HourlyRate').val());
+
+            // Check for negative values
+            if (isNaN(hoursWorked) || hoursWorked < 0) {
+                valid = false;
+                alert('Hours worked cannot be negative.');
+            }
+
+            if (isNaN(hourlyRate) || hourlyRate < 0) {
+                valid = false;
+                alert('Hourly rate cannot be negative.');
+            }
+
+            if (!valid) {
+                e.preventDefault(); // Prevent form submission if validation fails
+            }
+        });
+    });
+</script>
