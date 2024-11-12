@@ -10,6 +10,7 @@
     <thead>
         <tr>
             <th>Claim ID</th>
+       
             <th>Lecturer Name</th>
             <th>Hours Worked</th>
             <th>Hourly Rate</th>
@@ -24,7 +25,7 @@
         {
             <tr>
                 <td>@claim.Id</td>
-                <td>@claim.ClaimName</td>
+                <td>@claim.LecturerName</td>
                 <td>@claim.HoursWorked</td>
                 <td>@claim.HourlyRate</td>
                 <td>@(claim.HoursWorked * claim.HourlyRate)</td>

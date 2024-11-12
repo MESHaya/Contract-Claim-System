@@ -21,7 +21,7 @@ namespace ClaimSystem.Tests
                 .Options;
 
             _context = new ClaimDbContext(options);
-            _managerController = new ManagerController(null, _context); // Adjust parameters as needed
+            _managerController = new ManagerController(null, _context); 
         }
 
         [Fact]
@@ -30,9 +30,9 @@ namespace ClaimSystem.Tests
             // Arrange
             var claims = new List<Claims>
             {
-                new Claims { Id = 1, ClaimName = "John Doe", Status = "Pending" },
-                new Claims { Id = 2, ClaimName = "Jane Smith", Status = "Approved" },
-                new Claims { Id = 3, ClaimName = "Alice Johnson", Status = "Pending" }
+                new Claims { Id = 1, LecturerName = "John Doe", Status = "Pending" },
+                new Claims { Id = 2, LecturerName = "Jane Smith", Status = "Approved" },
+                new Claims { Id = 3, LecturerName = "Alice Johnson", Status = "Pending" }
             };
 
             _context.Claim.AddRange(claims);
@@ -51,7 +51,7 @@ namespace ClaimSystem.Tests
         public async Task ApproveClaim_ValidId_UpdatesClaimStatus()
         {
             // Arrange
-            var claim = new Claims { Id = 1, ClaimName = "John Doe", Status = "Pending" };
+            var claim = new Claims { Id = 1, LecturerName = "John Doe", Status = "Pending" };
             _context.Claim.Add(claim);
             _context.SaveChanges();
 
@@ -69,7 +69,7 @@ namespace ClaimSystem.Tests
         public async Task RejectClaim_ValidId_UpdatesClaimStatus()
         {
             // Arrange
-            var claim = new Claims { Id = 2, ClaimName = "Jane Smith", Status = "Pending" };
+            var claim = new Claims { Id = 2, LecturerName = "Jane Smith", Status = "Pending" };
             _context.Claim.Add(claim);
             _context.SaveChanges();
 

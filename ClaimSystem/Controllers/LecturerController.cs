@@ -76,7 +76,7 @@ namespace ClaimSystem.Controllers
         public IActionResult TrackClaims(string lecturerName)
         {
             var claims = _context.Claim
-                .Where(c => c.ClaimName == lecturerName && c.Status != "Completed")
+                .Where(c => c.LecturerName == lecturerName && c.Status != "Completed")
                 .OrderBy(c => c.Status)
                 .ToList();
 

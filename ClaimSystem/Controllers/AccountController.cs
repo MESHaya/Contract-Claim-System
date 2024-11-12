@@ -26,43 +26,53 @@ namespace ClaimSystem.Controllers
             return View();
         }
 
-        // Handle login post request
         [HttpPost]
         public async Task<IActionResult> Login(string username, string password)
         {
+            var user = await _userManager.FindByNameAsync(username);
+
+            if (user == null)
+            {
+                // Username does not exist
+                ModelState.AddModelError(string.Empty, "The username does not exist.");
+                return View();
+            }
+
+            // Check the password
             var result = await _signInManager.PasswordSignInAsync(username, password, false, false);
 
             if (result.Succeeded)
             {
-                // Find the user by username
-                var user = await _userManager.FindByNameAsync(username);
-                if (user != null)
+                var roles = await _userManager.GetRolesAsync(user);
+
+                if (roles.Contains("Lecturer"))
                 {
-                    // Get the user's roles
-                    var roles = await _userManager.GetRolesAsync(user);
-                    // Redirect based on the role
-                    if (roles.Contains("Lecturer"))
-                    {
-                        return RedirectToAction("LecturerDash", "Lecturer"); // Redirect to Lecturer dashboard
-                    }
-                    else if (roles.Contains("Academic Manager"))
-                    {
-                        return RedirectToAction("Academic_Manager_Dash", "Manager"); 
-                    }
-                    else if (roles.Contains("Programme Coordinator"))
-                    {
-                        return RedirectToAction("Programme_Coordinator_Dash", "Programme"); 
-                    }
+                    return RedirectToAction("LecturerDash", "Lecturer");
                 }
+                else if (roles.Contains("Academic Manager"))
+                {
+                    return RedirectToAction("Academic_Manager_Dash", "Manager");
+                }
+                else if (roles.Contains("Programme Coordinator"))
+                {
+                    return RedirectToAction("Programme_Coordinator_Dash", "Programme");
+                }
+            }
+            else if (result.IsLockedOut)
+            {
+                ModelState.AddModelError(string.Empty, "Your account has been locked out. Please try again later.");
+            }
+            else if (result.IsNotAllowed)
+            {
+                ModelState.AddModelError(string.Empty, "You are not allowed to log in. Please check your email for confirmation.");
             }
             else
             {
-                ModelState.AddModelError(string.Empty, "Invalid login attempt.");
-                return View();
+                // Incorrect password or other failure
+                ModelState.AddModelError(string.Empty, "The password is incorrect.");
             }
 
-            // Fallback in case no role matched
-            return RedirectToAction("Index", "Home");
+            return View();
         }
 
         // Handle logout

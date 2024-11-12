@@ -11,7 +11,7 @@
     <thead>
         <tr>
             <th>Claim ID</th>
-            <th>Claim Name</th>
+            <th>Lecturer Name</th>
             <th>Hours Worked</th>
             <th>Hourly Rate</th>
             <th>Total Amount</th>
@@ -26,7 +26,8 @@
         {
             <tr>
                 <td>@claim.Id</td>
-                <td>@claim.ClaimName</td>
+
+                <td>@claim.LecturerName</td>
                 <td>@claim.HoursWorked</td>
                 <td>@claim.HourlyRate</td>
                 <td>@(claim.HoursWorked * claim.HourlyRate)</td>
@@ -56,6 +57,8 @@
                     </form>
                     <form asp-action="RejectClaim" asp-controller="Manager" method="post" style="display:inline-block;">
                         <input type="hidden" name="claimId" value="@claim.Id" />
+
+                        <textarea name="rejectionReason" placeholder="Enter reason for rejection" ></textarea>
                         <button type="submit" class="btn btn-danger">Reject</button>
                     </form>
                 </td>

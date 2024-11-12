@@ -8,12 +8,14 @@ namespace ClaimSystem.Models
     public class ClaimDbContext : IdentityDbContext<IdentityUser, IdentityRole, string>
     {
         public DbSet<Claims> Claim { get; set; }//database table 
+        
 
         public ClaimDbContext(DbContextOptions<ClaimDbContext> options)
             : base(options)
         {
 
         }
+     
 
 
     }

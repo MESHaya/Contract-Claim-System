@@ -1,18 +1,36 @@
 ﻿@model ClaimSystem.Models.LoginViewModel
 
+
+@{
+    ViewData["Title"] = "Login";
+}
+
+
+
+<!-- Display the error message -->
+@if (ViewData.ModelState.ErrorCount > 0)
+{
+    <div class="alert alert-danger">
+        @foreach (var error in ViewData.ModelState.Values.SelectMany(v => v.Errors))
+        {
+            <p>@error.ErrorMessage</p>
+        }
+    </div>
+}
+
 <div class="container">
     <h2>Login</h2>
     <form asp-action="Login" method="post">
         <div class="form-group">
             <label asp-for="Username"></label>
             <input asp-for="Username" class="form-control" />
-            <span asp-validation-for="Username" class="text-danger"></span>
+            <span asp-validation-for="Username" class="text-danger" required></span>
         </div>
 
         <div class="form-group">
             <label asp-for="Password"></label>
             <input asp-for="Password" type="password" class="form-control" />
-            <span asp-validation-for="Password" class="text-danger"></span>
+            <span asp-validation-for="Password" class="text-danger" required></span>
         </div>
 
         <div class="form-group form-check">

@@ -1,5 +1,6 @@
 ﻿using ClaimSystem.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace ClaimSystem.Controllers
 {
@@ -45,12 +46,13 @@ namespace ClaimSystem.Controllers
 
         //Reject a claim 
         [HttpPost]
-        public IActionResult RejectClaim(int claimId)
+        public IActionResult RejectClaim(int claimId,string? rejectionReason)
         {
             var claim = _context.Claim.FirstOrDefault(c => c.Id == claimId);
             if (claim != null)
             {
                 claim.Status = "Rejected";
+                claim.RejectionReason = rejectionReason;
                 _context.SaveChanges();
             }
             return RedirectToAction("Academic_Manager_Dash");
