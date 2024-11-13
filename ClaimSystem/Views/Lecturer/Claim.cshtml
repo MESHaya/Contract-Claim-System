@@ -16,6 +16,7 @@
                 <th>Claim Name</th>
                 <th>Status</th>
                 <th>Date Submitted</th>
+                <th>Rejection Reason</th> <!-- New column for Rejection Reason -->
             </tr>
         </thead>
         <tbody>
@@ -27,6 +28,16 @@
                     <td>@claim.LecturerName</td>
                     <td>@claim.Status</td>
                     <td>@claim.DateSubmitted.ToString("MM/dd/yyyy")</td>
+                    <td>
+                        @if (claim.Status == "Rejected")
+                        {
+                            @claim.RejectionReason
+                        }
+                        else
+                        {
+                            <span>-</span> <!-- Placeholder if no rejection reason -->
+                        }
+                    </td>
                 </tr>
             }
         </tbody>

@@ -7,16 +7,15 @@
 
 <h2>Academic Manager Dashboard</h2>
 
-<table class="table table-striped">
+
+<h2>Pending Claims</h2>
+<table>
     <thead>
         <tr>
             <th>Claim ID</th>
             <th>Lecturer Name</th>
             <th>Hours Worked</th>
             <th>Hourly Rate</th>
-            <th>Total Amount</th>
-            <th>Notes</th>
-            <th>Files</th>
             <th>Status</th>
             <th>Actions</th>
         </tr>
@@ -26,47 +25,36 @@
         {
             <tr>
                 <td>@claim.Id</td>
-
                 <td>@claim.LecturerName</td>
                 <td>@claim.HoursWorked</td>
                 <td>@claim.HourlyRate</td>
-                <td>@(claim.HoursWorked * claim.HourlyRate)</td>
-                <td>@claim.Notes</td>
-                <td>@claim.FileName</td>
                 <td>@claim.Status</td>
                 <td>
-                    @if (!string.IsNullOrEmpty(claim.FileName))
+                    @if (claim.Status == "Pending")
                     {
-                        var fileNames = claim.FileName.Split(',');
-                        foreach (var fileName in fileNames)
-                        {
-                            <a href="@Url.Content("~/uploads/" + fileName)" target="_blank">@fileName</a>
+                        <!-- Button to approve the claim -->
+                        <form asp-action="ApproveClaim" method="post" style="display:inline;">
+                            <input type="hidden" name="claimId" value="@claim.Id" />
+                            <button type="submit">Approve</button>
+                        </form>
 
-                            <br />
-                        }
+                        <!-- Button to reject the claim with a reason -->
+                        <form asp-action="RejectClaim" method="post" style="display:inline;">
+                            <input type="hidden" name="claimId" value="@claim.Id" />
+                            <input type="text" name="rejectionReason" placeholder="Rejection reason" />
+                            <button type="submit">Reject</button>
+                        </form>
                     }
                     else
                     {
-                        <span>No files uploaded</span>
+                        @claim.Status
                     }
-                </td>
-                <td>
-                    <form asp-action="ApproveClaim" asp-controller="Manager" method="post" style="display:inline-block;">
-                        <input type="hidden" name="claimId" value="@claim.Id" />
-                        <button type="submit" class="btn btn-success">Approve</button>
-                    </form>
-                    <form asp-action="RejectClaim" asp-controller="Manager" method="post" style="display:inline-block;">
-                        <input type="hidden" name="claimId" value="@claim.Id" />
-
-                        <textarea name="rejectionReason" placeholder="Enter reason for rejection" ></textarea>
-                        <button type="submit" class="btn btn-danger">Reject</button>
-                    </form>
                 </td>
             </tr>
         }
     </tbody>
-   
 </table>
+
 <div class="card">
     <div class="card-body text-center">
         <form asp-controller="Account" asp-action="Logout" method="post" style="display:inline;">

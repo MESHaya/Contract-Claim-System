@@ -10,10 +10,12 @@ namespace ClaimSystem.Controllers
 
         private readonly ClaimDbContext _context;
 
-        public LecturerController(ILogger<LecturerController> logger, ClaimDbContext context)
+        private readonly ClaimVerificationService _claimVerificationService;
+        public LecturerController(ILogger<LecturerController> logger, ClaimDbContext context, ClaimVerificationService claimVerificationService)
         {
             _logger = logger;
             _context = context;
+            _claimVerificationService = claimVerificationService;
         }
 
         public IActionResult LecturerDash()
@@ -76,8 +78,11 @@ namespace ClaimSystem.Controllers
                 }
 
                 // Store the file names (or full paths) in the model
-                model.FileName = string.Join(",", fileNames);  // Assuming FileName is a string in the Claims model
+                model.FileName = string.Join(",", fileNames);
+
             }
+
+           
 
             _context.Claim.Add(model);
             await _context.SaveChangesAsync();

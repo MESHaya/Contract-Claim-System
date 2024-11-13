@@ -1,4 +1,5 @@
 using ClaimSystem.Models;
+using FluentAssertions.Common;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
@@ -12,6 +13,7 @@ namespace ClaimSystem
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
+            builder.Services.AddScoped<ClaimVerificationService>();
 
             // Add Identity with in-memory database
             builder.Services.AddDbContext<ClaimDbContext>(options =>
