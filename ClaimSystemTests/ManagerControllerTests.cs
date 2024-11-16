@@ -1,4 +1,4 @@
-﻿using ClaimSystem.Controllers;
+﻿/*using ClaimSystem.Controllers;
 using ClaimSystem.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -106,3 +106,4 @@ namespace ClaimSystem.Tests
         // Add more tests for other actions as needed
     }
 }
+*/

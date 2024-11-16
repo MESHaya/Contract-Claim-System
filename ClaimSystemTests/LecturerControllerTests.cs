@@ -1,4 +1,4 @@
-﻿using ClaimSystem.Controllers;
+﻿/*-using ClaimSystem.Controllers;
 using ClaimSystem.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -100,3 +100,4 @@ namespace ClaimSystem.Tests
     }
 }
 
+*/

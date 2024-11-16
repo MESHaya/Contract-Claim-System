@@ -353,3 +353,7 @@ C:\Users\meshaya\source\repos\ClaimSystem\ClaimSystem\obj\Debug\net8.0\refint\Cl
 C:\Users\meshaya\source\repos\ClaimSystem\ClaimSystem\obj\Debug\net8.0\ClaimSystem.pdb
 C:\Users\meshaya\source\repos\ClaimSystem\ClaimSystem\obj\Debug\net8.0\ClaimSystem.genruntimeconfig.cache
 C:\Users\meshaya\source\repos\ClaimSystem\ClaimSystem\obj\Debug\net8.0\ref\ClaimSystem.dll
+C:\Users\meshaya\source\repos\ClaimSystem\ClaimSystem\obj\Debug\net8.0\ClaimSystem.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\meshaya\source\repos\ClaimSystem\ClaimSystem\bin\Debug\net8.0\FluentValidation.dll
+C:\Users\meshaya\source\repos\ClaimSystem\ClaimSystem\bin\Debug\net8.0\FluentValidation.AspNetCore.dll
+C:\Users\meshaya\source\repos\ClaimSystem\ClaimSystem\bin\Debug\net8.0\FluentValidation.DependencyInjectionExtensions.dll

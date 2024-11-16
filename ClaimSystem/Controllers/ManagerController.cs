@@ -1,6 +1,7 @@
 ﻿using ClaimSystem.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using FluentValidation.Results;
 
 namespace ClaimSystem.Controllers
 {
@@ -8,12 +9,7 @@ namespace ClaimSystem.Controllers
     {
         private readonly ILogger<ManagerController> _logger;
         private readonly ClaimVerificationService _claimVerificationService;
-
         private readonly ClaimDbContext _context;
-        public IActionResult Index()
-        {
-            return View();
-        }
 
         public ManagerController(ILogger<ManagerController> logger, ClaimDbContext context, ClaimVerificationService claimVerificationService)
         {
@@ -22,33 +18,37 @@ namespace ClaimSystem.Controllers
             _claimVerificationService = claimVerificationService;
         }
 
-        //View all pending claims for verification 
+        public IActionResult Index()
+        {
+            return View();
+        }
 
+        // View all pending claims for verification
         public IActionResult Academic_Manager_Dash()
         {
             var pendingClaims = _context.Claim
                                         .Where(c => c.Status == "Pending")
                                         .ToList();
 
-            // Only reject claims automatically if they don't follow the rules
+            // Automatically reject claims if they don't meet verification rules
             foreach (var claim in pendingClaims)
             {
-                bool isValid = _claimVerificationService.VerifyClaim(claim);
+                var validationResult = _claimVerificationService.VerifyClaim(claim);
 
-                if (!isValid)
+                if (!validationResult.IsValid)
                 {
-                    // Set status to Rejected if the claim violates any rules
+                    // Update status to Rejected and store the rejection reason(s)
                     claim.Status = "Rejected";
+                    claim.RejectionReason = string.Join("; ", validationResult.Errors.Select(e => e.ErrorMessage));
                 }
             }
 
-            _context.SaveChanges(); 
+            // Save all changes to the database at once
+            _context.SaveChanges();
             return View(pendingClaims);
         }
 
-
-
-
+        // Manually approve a pending claim
         [HttpPost]
         public IActionResult ApproveClaim(int claimId)
         {
@@ -61,6 +61,7 @@ namespace ClaimSystem.Controllers
             return RedirectToAction("Academic_Manager_Dash");
         }
 
+        // Manually reject a pending claim with a reason
         [HttpPost]
         public IActionResult RejectClaim(int claimId, string? rejectionReason)
         {
@@ -68,12 +69,10 @@ namespace ClaimSystem.Controllers
             if (claim != null && claim.Status == "Pending")
             {
                 claim.Status = "Rejected";
-                claim.RejectionReason = rejectionReason;
+                claim.RejectionReason = rejectionReason ?? "No specific reason provided.";
                 _context.SaveChanges();
             }
             return RedirectToAction("Academic_Manager_Dash");
         }
-
-
     }
 }
