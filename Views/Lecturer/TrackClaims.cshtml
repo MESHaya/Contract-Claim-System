@@ -1,0 +1,40 @@
+﻿@model IEnumerable<ClaimSystem.Models.Claims>
+
+@{
+    ViewData["Title"] = "Track Claims";
+}
+
+<h2>Track Your Claims</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Claim ID</th>
+            <th>Claim Name</th>
+            <th>Hours Worked</th>
+            <th>Hourly Rate</th>
+            <th>Notes</th>
+            <th>Status</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var claim in Model)
+        {
+            <tr>
+                <td>@claim.Id</td>
+                <td>@claim.LecturerName</td>
+                <td>@claim.HoursWorked</td>
+                <td>@claim.HourlyRate</td>
+                <td>@claim.Notes</td>
+                <td>@claim.Status</td>
+            </tr>
+        }
+    </tbody>
+</table>
+<div class="card">
+    <div class="card-body text-center">
+        <form asp-controller="Lecturer" asp-action="LecturerDash" method="post" style="display:inline;">
+            <button type="submit" class="btn btn-danger">Back</button>
+        </form>
+    </div>
+</div>

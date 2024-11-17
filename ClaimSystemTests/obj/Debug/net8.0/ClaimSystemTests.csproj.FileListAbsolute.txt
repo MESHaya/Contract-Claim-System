@@ -1,8 +1,0 @@
-C:\Users\meshaya\source\repos\ClaimSystem\ClaimSystemTests\bin\Debug\net8.0\CoverletSourceRootsMapping_ClaimSystemTests
-C:\Users\meshaya\source\repos\ClaimSystem\ClaimSystemTests\obj\Debug\net8.0\ClaimSystemTests.csproj.AssemblyReference.cache
-C:\Users\meshaya\source\repos\ClaimSystem\ClaimSystemTests\obj\Debug\net8.0\MvcTestingAppManifest.json
-C:\Users\meshaya\source\repos\ClaimSystem\ClaimSystemTests\obj\Debug\net8.0\ClaimSystemTests.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\meshaya\source\repos\ClaimSystem\ClaimSystemTests\obj\Debug\net8.0\ClaimSystemTests.AssemblyInfoInputs.cache
-C:\Users\meshaya\source\repos\ClaimSystem\ClaimSystemTests\obj\Debug\net8.0\ClaimSystemTests.AssemblyInfo.cs
-C:\Users\meshaya\source\repos\ClaimSystem\ClaimSystemTests\obj\Debug\net8.0\ClaimSystemTests.csproj.CoreCompileInputs.cache
-C:\Users\meshaya\source\repos\ClaimSystem\ClaimSystemTests\obj\Debug\net8.0\ClaimSystemTests.sourcelink.json
