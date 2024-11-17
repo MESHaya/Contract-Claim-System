@@ -51,6 +51,14 @@ namespace ClaimSystem
                 name: "default",
                 pattern: "{controller=Account}/{action=Login}/{id?}");
 
+
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapControllerRoute(
+                    name: "default",
+                    pattern: "{controller=HR}/{action=HRDashboard}/{id?}");
+            });
+
             // Seed data for testing
             using (var scope = app.Services.CreateScope())
             {
@@ -67,7 +75,7 @@ namespace ClaimSystem
         public static async Task SeedData(UserManager<IdentityUser> userManager, RoleManager<IdentityRole> roleManager)
         {
             // Roles to be seeded
-            var roles = new[] { "Lecturer", "Academic Manager", "Programme Coordinator" };
+            var roles = new[] { "Lecturer", "Academic Manager", "Programme Coordinator","HR" };
 
             // Seed roles if they do not exist
             foreach (var role in roles)
@@ -100,6 +108,15 @@ namespace ClaimSystem
                 var programmeCoordinator = new IdentityUser { UserName = "testprogrammecoordinator", Email = "programmecoordinator@test.com" };
                 await userManager.CreateAsync(programmeCoordinator, "Password123!");
                 await userManager.AddToRoleAsync(programmeCoordinator, "Programme Coordinator");
+            }
+
+            //SEED A HR user 
+
+            if (await userManager.FindByNameAsync("testHR") == null)
+            {
+                var HR = new IdentityUser { UserName = "testHR", Email = "HR@test.com" };
+                await userManager.CreateAsync(HR, "Password123!");
+                await userManager.AddToRoleAsync(HR, "HR");
             }
         }
     }

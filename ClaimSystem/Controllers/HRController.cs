@@ -16,23 +16,32 @@ namespace ClaimSystem.Controllers
         private readonly ClaimDbContext _context;
 
 
-       
+
         public HRController(ILogger<HRController> logger, ClaimDbContext context)
         {
             _logger = logger;
             _context = context;
-            
-        }
 
+        }
+        public IActionResult HRdash()
+        {
+            return View();
+        }
         public IActionResult ManageLecturers()
         {
             return View(); // Display a list of lecturers with edit options
         }
 
-        public IActionResult GenerateReports()
+        public IActionResult GenerateReport()
         {
             return View(); // Display options for generating reports
         }
+
+        public IActionResult GenerateInvoice()
+        {
+            return View(); // Display options for generating invoices
+        }
+
 
         //UPDATE LECTUERER DATA 
         public IActionResult EditLecturer(int id)
@@ -53,18 +62,17 @@ namespace ClaimSystem.Controllers
             return View(model);
         }
 
-        public IActionResult GenerateClaimReports()
+        /*public IActionResult GenerateClaimReports()
         {
             var approvedClaims = _context.Claim
                                          .Where(c => c.Status == "Approved")
                                          .ToList();
 
-            // Generate a report (pseudo-code, replace with your reporting library logic)
-            var report = new ClaimReportGenerator().Generate(approvedClaims);
+            var reportGenerator = new ClaimReportGenerator();
+            var report = reportGenerator.Generate(approvedClaims);
 
             return File(report, "application/pdf", "ClaimReport.pdf");
         }
-
-
+        */
     }
 }

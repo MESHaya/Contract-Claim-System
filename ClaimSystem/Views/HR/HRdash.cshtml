@@ -1,13 +1,20 @@
-﻿@model IEnumerable<ClaimSystem.Models.Lecturer>
-
-@{
+﻿@{
     ViewData["Title"] = "HR Dashboard";
 }
-<h1>HR Dashboard</h1>
-<div>
-    <a asp-action="ManageLecturers">Manage Lecturers</a>
-</div>
-<div>
-    <a asp-action="GenerateClaimReports">Generate Claim Reports</a>
-</div>
 
+<h1>HR Dashboard</h1>
+
+<div>
+    <h2>Actions</h2>
+    <ul>
+        <li>
+            <a asp-controller="HR" asp-action="EditLecturer">Edit Lecturer</a>
+        </li>
+        <li>
+            <a asp-controller="HR" asp-action="GenerateReport">Generate Report</a>
+        </li>
+        <li>
+            <a asp-controller="HR" asp-action="GenerateInvoice">Generate Invoice</a>
+        </li>
+    </ul>
+</div>

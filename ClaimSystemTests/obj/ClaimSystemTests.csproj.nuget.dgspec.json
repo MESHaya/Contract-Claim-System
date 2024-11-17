@@ -50,6 +50,10 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
+            "CrystalDecisions.CrystalReports.Engine": {
+              "target": "Package",
+              "version": "[1.0.0, )"
+            },
             "Microsoft.NET.Test.Sdk": {
               "target": "Package",
               "version": "[17.8.0, )"
@@ -129,6 +133,10 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
+            "CrystalDecisions.CrystalReports.Engine": {
+              "target": "Package",
+              "version": "[1.0.0, )"
+            },
             "FluentAssertions": {
               "target": "Package",
               "version": "[6.12.1, )"

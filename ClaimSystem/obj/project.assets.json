@@ -18,6 +18,15 @@
           }
         }
       },
+      "CrystalDecisions.CrystalReports.Engine/1.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/CrystalDecisions.CrystalReports.Engine.dll": {}
+        },
+        "runtime": {
+          "lib/CrystalDecisions.CrystalReports.Engine.dll": {}
+        }
+      },
       "FluentAssertions/6.12.1": {
         "type": "package",
         "dependencies": {
@@ -1499,6 +1508,18 @@
         "lib/netstandard2.1/Castle.Core.dll",
         "lib/netstandard2.1/Castle.Core.xml",
         "readme.txt"
+      ]
+    },
+    "CrystalDecisions.CrystalReports.Engine/1.0.0": {
+      "sha512": "qr+XgfiEvAWXModuJy4IamWlkarFNL6c2ueA9PcZkLUkoz17L0rptDNzLzJkFaSP8hh+nAwfD2t3wvRLdbjFQw==",
+      "type": "package",
+      "path": "crystaldecisions.crystalreports.engine/1.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "crystaldecisions.crystalreports.engine.1.0.0.nupkg.sha512",
+        "crystaldecisions.crystalreports.engine.nuspec",
+        "lib/CrystalDecisions.CrystalReports.Engine.dll"
       ]
     },
     "FluentAssertions/6.12.1": {
@@ -3469,6 +3490,7 @@
   },
   "projectFileDependencyGroups": {
     "net8.0": [
+      "CrystalDecisions.CrystalReports.Engine >= 1.0.0",
       "FluentAssertions >= 6.12.1",
       "FluentValidation.AspNetCore >= 11.3.0",
       "Microsoft.AspNetCore.Identity >= 2.1.39",
@@ -3524,6 +3546,10 @@
       "net8.0": {
         "targetAlias": "net8.0",
         "dependencies": {
+          "CrystalDecisions.CrystalReports.Engine": {
+            "target": "Package",
+            "version": "[1.0.0, )"
+          },
           "FluentAssertions": {
             "target": "Package",
             "version": "[6.12.1, )"
@@ -3579,5 +3605,17 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400/PortableRuntimeIdentifierGraph.json"
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'CrystalDecisions.CrystalReports.Engine 1.0.0' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net8.0'. This package may not be fully compatible with your project.",
+      "libraryId": "CrystalDecisions.CrystalReports.Engine",
+      "targetGraphs": [
+        "net8.0"
+      ]
+    }
+  ]
 }

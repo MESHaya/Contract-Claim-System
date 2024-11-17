@@ -57,6 +57,10 @@ namespace ClaimSystem.Controllers
                 {
                     return RedirectToAction("Programme_Coordinator_Dash", "Programme");
                 }
+                else if (roles.Contains("HR"))
+                {
+                    return RedirectToAction("HRdash", "HR");
+                }
             }
             else if (result.IsLockedOut)
             {
