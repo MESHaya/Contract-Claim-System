@@ -181,6 +181,67 @@ namespace ClaimSystem.Models
                 return null;
             }
         }
+        public static List<Lecturer> GetAllLecturers()
+        {
+            List<Lecturer> lecturers = new();
+            try
+            {
+                using MySqlConnection con = new(constr);
+                con.Open();
+
+                string qry = "SELECT Id, Name, ContactInfo, DateOfHire FROM Lecturers";
+                using MySqlCommand cmd = new(qry, con);
+
+                using MySqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    Lecturer lecturer = new()
+                    {
+                        LecturerId = reader.GetInt32("Id"),
+                        Name = reader.GetString("Name"),
+                        ContactInfo = reader.GetString("ContactInfo"),
+                        DateOfHire = reader.GetDateTime("DateOfHire")
+                    };
+
+                    lecturers.Add(lecturer);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("An error occurred: " + ex.Message);
+            }
+            return lecturers;
+        }
+
+
+        public static bool UpdateLecturer(Lecturer lecturer)
+        {
+            try
+            {
+                using MySqlConnection con = new(constr);
+                con.Open();
+
+                string qry = @"UPDATE Lecturers SET 
+                        Name = @name, 
+                        ContactInfo = @contactInfo, 
+                        DateOfHire = @dateOfHire 
+                        WHERE Id = @id";
+
+                using MySqlCommand cmd = new(qry, con);
+                cmd.Parameters.AddWithValue("@id", lecturer.LecturerId);
+                cmd.Parameters.AddWithValue("@name", lecturer.Name);
+                cmd.Parameters.AddWithValue("@contactInfo", lecturer.ContactInfo);
+                cmd.Parameters.AddWithValue("@dateOfHire", lecturer.DateOfHire);
+
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("An error occurred while updating lecturer: " + ex.Message);
+                return false;
+            }
+        }
 
         public static List<Claims> GetClaimsForUser(int userId)
         {

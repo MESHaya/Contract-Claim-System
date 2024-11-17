@@ -23,10 +23,6 @@ namespace ClaimSystem.Controllers
             return View();
         }
 
-        public IActionResult ManageLecturers()
-        {
-            return View(); // Display a list of lecturers with edit options
-        }
 
         public IActionResult GenerateReport()
         {
@@ -38,25 +34,35 @@ namespace ClaimSystem.Controllers
             return View(); // Display options for generating invoices
         }
 
-        //UPDATE LECTURER DATA 
-        public IActionResult EditLecturer(int id)
+        public IActionResult GetAllLecturers()
         {
-            var lecturer = ClaimDbContext.GetLecturerDetails(id);
-            return View(lecturer);
+            List<Lecturer> lecturers = ClaimDbContext.GetAllLecturers(); // Fetch all lecturers
+            return View(lecturers); // Pass the list to the view
         }
 
+
+        // List all lecturers
+        public IActionResult EditLecturer()
+        {
+            var lecturers = ClaimDbContext.GetAllLecturers();
+            return View(lecturers); // Pass list of lecturers to the view
+        }
         [HttpPost]
-        public IActionResult EditLecturer(Lecturer model)
+        public IActionResult EditAllLecturers(List<Lecturer> lecturers)
         {
             if (ModelState.IsValid)
             {
-                // Update Lecturer details in the database, assuming method available
-                // You may need to implement a static update method in ClaimDbContext if necessary
-                // For now, it just fetches data
-                return RedirectToAction("ManageLecturers");
+                foreach (var lecturer in lecturers)
+                {
+                    ClaimDbContext.UpdateLecturer(lecturer); // Update each lecturer
+                }
+                return RedirectToAction("HRdash"); // Redirect to a list or confirmation page
             }
-            return View(model);
+            return View(lecturers); // Return the view with validation errors
         }
+
+
+
 
         //GET ALL CLAIMS
         public IActionResult ManageClaims()

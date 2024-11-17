@@ -1,18 +1,41 @@
-﻿@model ClaimSystem.Models.Lecturer
+﻿@model List<ClaimSystem.Models.Lecturer>
 
 @{
-    ViewData["Title"] = "Edit Lecturer";
+    ViewData["Title"] = "Edit All Lecturers";
 }
 
-<form asp-action="EditLecturer" method="post">
-    <input type="hidden" asp-for="LecturerId" />
-    <div>
-        <label>Name:</label>
-        <input asp-for="Name" />
-    </div>
-    <div>
-        <label>Contact Info:</label>
-        <input asp-for="ContactInfo" />
-    </div>
-    <button type="submit">Save</button>
+<h1>Edit All Lecturer Details</h1>
+
+<form method="post" action="/HR/HRdash">
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Contact Info</th>
+                <th>Date Of Hire</th>
+            </tr>
+        </thead>
+        <tbody>
+            @for (int i = 0; i < Model.Count; i++)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(model => model[i].LecturerId)
+                        <input type="hidden" name="[@i].LecturerId" value="@Model[i].LecturerId" />
+                    </td>
+                    <td>
+                        <input type="text" name="[@i].Name" value="@Model[i].Name" />
+                    </td>
+                    <td>
+                        <input type="text" name="[@i].ContactInfo" value="@Model[i].ContactInfo" />
+                    </td>
+                    <td>
+                        <input type="date" name="[@i].DateOfHire" value="@Model[i].DateOfHire.ToString("yyyy-MM-dd")" />
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <button type="submit">Save Changes</button>
 </form>

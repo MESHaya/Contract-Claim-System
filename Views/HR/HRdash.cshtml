@@ -3,18 +3,12 @@
 }
 
 <h1>HR Dashboard</h1>
-
+<p>Welcome to the HR Dashboard!</p>
 <div>
     <h2>Actions</h2>
     <ul>
-        <li>
-            <a asp-controller="HR" asp-action="EditLecturer">Edit Lecturer</a>
-        </li>
-        <li>
-            <a asp-controller="HR" asp-action="GenerateReport">Generate Report</a>
-        </li>
-        <li>
-            <a asp-controller="HR" asp-action="GenerateInvoice">Generate Invoice</a>
-        </li>
+        <li><a href="/HR/EditLecturer">Manage Lecturers</a></li>
+        <li><a href="/HR/GenerateReport">Generate Report</a></li>
+        <li><a href="/HR/GenerateInvoice">Generate Invoice</a></li>
     </ul>
 </div>
