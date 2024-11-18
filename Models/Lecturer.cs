@@ -7,7 +7,11 @@ namespace ClaimSystem.Models
         public int  LecturerId { get; set; }  // Foreign key to Lecturer
 
         public string Name { get; set; }
-        public string ContactInfo { get; set; }
+        public string Email { get; set; }
+        public string Phone { get; set; }
+       
+        public string Department { get; set; }
+
         public DateTime DateOfHire { get; set; }
         public string Username
         {

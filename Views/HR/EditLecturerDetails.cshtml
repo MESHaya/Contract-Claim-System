@@ -1,0 +1,31 @@
+﻿@model ClaimSystem.Models.Lecturer
+
+<h2>Edit Lecturer Details</h2>
+
+<form method="post">
+    <div>
+        <label>Name:</label>
+        <input type="text" name="Name" value="@Model.Name" />
+    </div>
+    <div>
+        <label>Email:</label>
+        <input type="email" name="Email" value="@Model.Email" />
+    </div>
+    <div>
+        <label>Phone:</label>
+        <input type="text" name="Phone" value="@Model.Phone" />
+    </div>
+    <div>
+        <label>Department:</label>
+        <input type="text" name="Department" value="@Model.Department" />
+    </div>
+    <div>
+        <label>Username:</label>
+        <input type="text" name="Username" value="@Model.Username" />
+    </div>
+    <div>
+        <label>Password:</label>
+        <input type="password" name="Password" value="@Model.Password" />
+    </div>
+    <button type="submit">Save Changes</button>
+</form>

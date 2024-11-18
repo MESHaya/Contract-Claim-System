@@ -91,7 +91,7 @@ namespace ClaimSystem.Controllers
                     _logger.LogInformation("Successfully connected to the database.");
 
                     string query = @"
-                        SELECT Id, Name, Username, Password, 'Lecturer' AS Role FROM Lecturers WHERE Username = @Username
+                        SELECT LecturerID AS Id, Name, Username, Password, 'Lecturer' AS Role FROM Lecturers WHERE Username = @Username
                         UNION
                         SELECT MangerId AS Id, Name, Username, Password, 'Academic Manager' AS Role FROM AcademicManger WHERE Username = @Username
                         UNION

@@ -1,0 +1,41 @@
+﻿@model ClaimSystem.Models.Report
+
+
+@{
+    ViewData["Title"] = "Generate Report";
+}
+@if (TempData["Message"] != null)
+{
+    <div style="color: red; font-weight: bold;">
+        @TempData["Message"]
+    </div>
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generate Report</title>
+</head>
+<body>
+    <h2>Generate Report</h2>
+
+    @if (TempData["Message"] != null)
+    {
+        <p style="color: red;">@TempData["Message"]</p>
+    }
+
+    <form asp-action="GenerateReport" method="post">
+        <label for="startDate">Start Date:</label>
+        <input type="date" id="startDate" name="startDate" required />
+        <br />
+
+        <label for="endDate">End Date:</label>
+        <input type="date" id="endDate" name="endDate" required />
+        <br />
+
+        <button type="submit">Generate Report</button>
+    </form>
+</body>
+</html>

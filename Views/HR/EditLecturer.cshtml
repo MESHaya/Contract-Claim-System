@@ -1,41 +1,14 @@
-﻿@model List<ClaimSystem.Models.Lecturer>
+﻿@model IEnumerable<ClaimSystem.Models.Lecturer>
 
-@{
-    ViewData["Title"] = "Edit All Lecturers";
-}
+<h2>Edit Lecturer</h2>
 
-<h1>Edit All Lecturer Details</h1>
-
-<form method="post" action="/HR/HRdash">
-    <table>
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Name</th>
-                <th>Contact Info</th>
-                <th>Date Of Hire</th>
-            </tr>
-        </thead>
-        <tbody>
-            @for (int i = 0; i < Model.Count; i++)
-            {
-                <tr>
-                    <td>
-                        @Html.DisplayFor(model => model[i].LecturerId)
-                        <input type="hidden" name="[@i].LecturerId" value="@Model[i].LecturerId" />
-                    </td>
-                    <td>
-                        <input type="text" name="[@i].Name" value="@Model[i].Name" />
-                    </td>
-                    <td>
-                        <input type="text" name="[@i].ContactInfo" value="@Model[i].ContactInfo" />
-                    </td>
-                    <td>
-                        <input type="date" name="[@i].DateOfHire" value="@Model[i].DateOfHire.ToString("yyyy-MM-dd")" />
-                    </td>
-                </tr>
-            }
-        </tbody>
-    </table>
-    <button type="submit">Save Changes</button>
-</form>
+<ul>
+    @foreach (var lecturer in Model)
+    {
+        <li>
+            <a href="@Url.Action("EditLecturerDetails", "HR", new { lecturerId = lecturer.LecturerId })">
+                @lecturer.Name
+            </a>
+        </li>
+    }
+</ul>

@@ -1,9 +1,47 @@
-﻿@{
-    ViewData["Title"] = "Generate Report";
-}
+﻿@model ClaimSystem.Models.Report
 
-<h1>Generate Report</h1>
-<p>Click the button below to generate a report:</p>
-<form method="post" asp-action="DownloadReport">
-    <button type="submit">Generate Report</button>
-</form>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generate Report</title>
+</head>
+<body>
+
+    <h2>Report Summary</h2>
+    <p>Report Date: @Model.ReportDate</p>
+    <p>Total Claims Amount: @Model.TotalClaimsAmount.ToString("C")</p>
+    <p>Summary: @Model.Summary</p>
+
+    <h3>Approved Claims</h3>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Claim ID</th>
+                <th>Lecturer Name</th>
+                <th>Date Submitted</th>
+                <th>Hours Worked</th>
+                <th>Hourly Rate</th>
+                <th>Total Amount</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var claim in Model.Claims)
+            {
+                <tr>
+                    <td>@claim.Id</td>  <!-- Correct property name is 'Id' -->
+                    <td>@claim.LecturerName</td>  <!-- Correct property name is 'LecturerName' -->
+                    <td>@claim.DateSubmitted.ToShortDateString()</td>  <!-- Correct property is 'DateSubmitted' -->
+                    <td>@claim.HoursWorked</td>  <!-- Correct property is 'HoursWorked' -->
+                    <td>@claim.HourlyRate.ToString("C")</td>  <!-- Correct property is 'HourlyRate' -->
+                    <td>@(claim.HoursWorked * claim.HourlyRate).ToString("C")</td>  <!-- Calculating Total Amount -->
+                    <td>@claim.Status</td>  <!-- Correct property is 'Status' -->
+                </tr>
+            }
+        </tbody>
+    </table>
+
+</body>
+</html>

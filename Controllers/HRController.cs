@@ -1,12 +1,17 @@
 ﻿using ClaimSystem.Models;
+using iTextSharp.text;
+using iTextSharp.text.pdf;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using MySql.Data.MySqlClient;
 
 namespace ClaimSystem.Controllers
 {
     public class HRController : Controller
     {
         private readonly ILogger<HRController> _logger;
+        // Database connection string (adjust if necessary)
+        private static readonly string constr = "server=localhost;uid=root;pwd=Password1234567890;database=claimdb";
 
         public HRController(ILogger<HRController> logger)
         {
@@ -23,78 +28,116 @@ namespace ClaimSystem.Controllers
             return View();
         }
 
-
-        public IActionResult GenerateReport()
+        public async Task<IActionResult> ViewAllLecturers()
         {
-            return View(); // Display options for generating reports
+            try
+            {
+                var lecturers = ClaimDbContext.GetAllLecturers();  // Retrieve all lecturers from the database
+                return View(lecturers);  // Pass the list of lecturers to the view
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error retrieving all lecturers.");
+                return View("Error");  // Handle errors by showing an error view
+            }
         }
 
-        public IActionResult GenerateInvoice()
+        public async Task<IActionResult> EditLecturer()
         {
-            return View(); // Display options for generating invoices
+            try
+            {
+                var lecturers = ClaimDbContext.GetAllLecturers();  // Get all lecturers from the database
+                return View(lecturers);  // Display the lecturers in the view (you can use a dropdown or list)
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error retrieving lecturers.");
+                return View("Error");  // Handle errors by showing an error view
+            }
         }
 
-        public IActionResult GetAllLecturers()
+        [HttpGet]
+        public async Task<IActionResult> EditLecturerDetails(int lecturerId)
         {
-            List<Lecturer> lecturers = ClaimDbContext.GetAllLecturers(); // Fetch all lecturers
-            return View(lecturers); // Pass the list to the view
+            try
+            {
+                var lecturer = ClaimDbContext.GetLecturerById(lecturerId);  // Get the lecturer by ID
+                if (lecturer == null)
+                {
+                    return NotFound();  // If the lecturer is not found, return a Not Found response
+                }
+                return View(lecturer);  // Pass the lecturer to the view for editing
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error retrieving lecturer details.");
+                return View("Error");  // Handle errors by showing an error view
+            }
         }
 
-
-        // List all lecturers
-        public IActionResult EditLecturer()
-        {
-            var lecturers = ClaimDbContext.GetAllLecturers();
-            return View(lecturers); // Pass list of lecturers to the view
-        }
         [HttpPost]
-        public IActionResult EditAllLecturers(List<Lecturer> lecturers)
+        public async Task<IActionResult> EditLecturerDetails(Lecturer lecturer)
         {
-            if (ModelState.IsValid)
+            try
             {
-                foreach (var lecturer in lecturers)
+                if (ModelState.IsValid)
                 {
-                    ClaimDbContext.UpdateLecturer(lecturer); // Update each lecturer
+                    var result = ClaimDbContext.SaveChanges(lecturer);  // Save changes to the lecturer
+                    if (result)
+                    {
+                        return RedirectToAction("HRdash");  // Redirect to the index page or wherever necessary
+                    }
+                    else
+                    {
+                        ModelState.AddModelError("", "An error occurred while saving the lecturer's details.");
+                    }
                 }
-                return RedirectToAction("HRdash"); // Redirect to a list or confirmation page
+                return View(lecturer);  // Return the view with any errors for the user to correct
             }
-            return View(lecturers); // Return the view with validation errors
-        }
-
-
-
-
-        //GET ALL CLAIMS
-        public IActionResult ManageClaims()
-        {
-            var claimsList = ClaimDbContext.GetAllClaims();
-            return View(claimsList);
-        }
-
-        //UPDATE CLAIM STATUS
-        public IActionResult UpdateClaimStatus(int id, string status)
-        {
-            var claim = ClaimDbContext.GetAllClaims().FirstOrDefault(c => c.Id == id);
-            if (claim != null)
+            catch (Exception ex)
             {
-                claim.Status = status;
-                bool success = ClaimDbContext.UpdateClaim(claim);
-                if (success)
-                {
-                    // Redirect or return a success message
-                    return RedirectToAction("ManageClaims");
-                }
+                _logger.LogError(ex, "Error updating lecturer details.");
+                return View("Error");  // Handle errors by showing an error view
             }
-            return View(); // Return an error view if update fails
         }
 
-        // Example of generating a PDF report
-        public IActionResult GenerateClaimReports()
+        [HttpGet]
+        public IActionResult GenerateReportForm()
         {
-            var claims = ClaimDbContext.GetAllClaims();
-            // You may implement the actual PDF generation logic here
-            // For now, just returning a success response
-            return File(new byte[0], "application/pdf", "ClaimReport.pdf");
+            return View();
+        }
+
+        [HttpPost]
+       
+        public async Task<IActionResult> GenerateReport(DateTime startDate, DateTime endDate)
+        {
+            try
+            {
+                var approvedClaims = ClaimDbContext.GetApprovedClaimsByDateRange(startDate, endDate);
+
+                if (approvedClaims == null || !approvedClaims.Any())
+                {
+                    TempData["Message"] = "No approved claims found in the specified date range.";
+                    return RedirectToAction("GenerateReportForm");  // Redirect back to the form
+                }
+
+                decimal totalClaimsAmount = approvedClaims.Sum(c => c.HoursWorked * c.HourlyRate);
+
+                var report = new Report
+                {
+                    ReportDate = DateTime.Now,
+                    Claims = approvedClaims,
+                    TotalClaimsAmount = totalClaimsAmount,
+                    Summary = $"Report generated for approved claims between {startDate.ToShortDateString()} and {endDate.ToShortDateString()}."
+                };
+
+                return View("ReportView", report);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error generating the report.");
+                return View("Error");
+            }
         }
     }
 }

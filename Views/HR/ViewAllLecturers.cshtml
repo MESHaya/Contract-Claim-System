@@ -1,0 +1,39 @@
+﻿@model IEnumerable<ClaimSystem.Models.Lecturer>
+
+<h2>All Lecturers</h2>
+
+@if (Model.Any())
+{
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Department</th>
+                <th>Username</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var lecturer in Model)
+            {
+                <tr>
+                    <td>@lecturer.Name</td>
+                    <td>@lecturer.Email</td>
+                    <td>@lecturer.Phone</td>
+                    <td>@lecturer.Department</td>
+                    <td>@lecturer.Username</td>
+                    <td>
+                        <a href="@Url.Action("EditLecturer", "HR", new { lecturerId = lecturer.LecturerId })">Edit</a> |
+                        <a href="@Url.Action("DeleteLecturer", "HR", new { lecturerId = lecturer.LecturerId })" onclick="return confirm('Are you sure you want to delete this lecturer?')">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>No lecturers found.</p>
+}

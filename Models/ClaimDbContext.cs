@@ -151,117 +151,233 @@ namespace ClaimSystem.Models
             return claimsList;
         }
 
-        public static Lecturer GetLecturerDetails(int id)
-        {
-            try
-            {
-                using MySqlConnection con = new(constr);
-                con.Open();
-
-                string qry = @"SELECT Id, Name, ContactInfo, DateOfHire FROM Lecturers WHERE Id = @id";
-                using MySqlCommand cmd = new(qry, con);
-                cmd.Parameters.AddWithValue("@id", id);
-
-                using MySqlDataReader reader = cmd.ExecuteReader();
-                reader.Read();
-
-                Lecturer lecturer = new()
-                {
-                    LecturerId = reader.GetInt32("Id"),
-                    Name = reader.GetString("Name"),
-                    ContactInfo = reader.GetString("ContactInfo"),
-                    DateOfHire = reader.GetDateTime("DateOfHire")
-                };
-
-                return lecturer;
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine("An error occurred: " + ex.Message);
-                return null;
-            }
-        }
         public static List<Lecturer> GetAllLecturers()
         {
-            List<Lecturer> lecturers = new();
+            List<Lecturer> lecturersList = new List<Lecturer>();
+
             try
             {
-                using MySqlConnection con = new(constr);
+                using MySqlConnection con = new MySqlConnection(constr);
                 con.Open();
 
-                string qry = "SELECT Id, Name, ContactInfo, DateOfHire FROM Lecturers";
-                using MySqlCommand cmd = new(qry, con);
+                // Query to get all lecturers
+                string qry = @"SELECT LecturerID, Name, DateOfHire, Username, Password, Email, Phone, Department
+                       FROM Lecturers";
+
+                using MySqlCommand cmd = new MySqlCommand(qry, con);
 
                 using MySqlDataReader reader = cmd.ExecuteReader();
                 while (reader.Read())
                 {
-                    Lecturer lecturer = new()
+                    Lecturer lecturer = new Lecturer
                     {
-                        LecturerId = reader.GetInt32("Id"),
+                        LecturerId = reader.GetInt32("LecturerID"),
                         Name = reader.GetString("Name"),
-                        ContactInfo = reader.GetString("ContactInfo"),
-                        DateOfHire = reader.GetDateTime("DateOfHire")
+                        Email = reader.IsDBNull(reader.GetOrdinal("Email")) ? null : reader.GetString("Email"),
+                        Phone = reader.IsDBNull(reader.GetOrdinal("Phone")) ? null : reader.GetString("Phone"),
+                        Department = reader.IsDBNull(reader.GetOrdinal("Department")) ? null : reader.GetString("Department"),
+                        DateOfHire = reader.GetDateTime("DateOfHire"),
+                        Username = reader.IsDBNull(reader.GetOrdinal("Username")) ? null : reader.GetString("Username"),
+                        Password = reader.IsDBNull(reader.GetOrdinal("Password")) ? null : reader.GetString("Password"),
+                     
                     };
 
-                    lecturers.Add(lecturer);
+                    lecturersList.Add(lecturer);
                 }
             }
             catch (Exception ex)
             {
                 Console.WriteLine("An error occurred: " + ex.Message);
+                // Optionally, log the full stack trace for more detail
+                Console.WriteLine(ex.StackTrace);
             }
-            return lecturers;
+
+            return lecturersList;
         }
 
-
-        public static bool UpdateLecturer(Lecturer lecturer)
+        public static bool EditLecturer(Lecturer lecturer)
         {
             try
             {
                 using MySqlConnection con = new(constr);
                 con.Open();
 
-                string qry = @"UPDATE Lecturers SET 
-                        Name = @name, 
-                        ContactInfo = @contactInfo, 
-                        DateOfHire = @dateOfHire 
-                        WHERE Id = @id";
+                string qry = @"
+            UPDATE Lecturers 
+            SET 
+                Name = @name,
+                Email = @email,
+                Phone = @phone,
+                Department = @department,
+                DateOfHire = @dateOfHire,
+                Username = @username,
+                Password = @password
+            WHERE LecturerID = @lecturerId";
 
                 using MySqlCommand cmd = new(qry, con);
-                cmd.Parameters.AddWithValue("@id", lecturer.LecturerId);
+                cmd.Parameters.AddWithValue("@lecturerId", lecturer.LecturerId);
                 cmd.Parameters.AddWithValue("@name", lecturer.Name);
-                cmd.Parameters.AddWithValue("@contactInfo", lecturer.ContactInfo);
+                cmd.Parameters.AddWithValue("@email", lecturer.Email ?? (object)DBNull.Value); // Handle optional fields
+                cmd.Parameters.AddWithValue("@phone", lecturer.Phone ?? (object)DBNull.Value); // Handle optional fields
+                cmd.Parameters.AddWithValue("@department", lecturer.Department ?? (object)DBNull.Value); // Handle optional fields
                 cmd.Parameters.AddWithValue("@dateOfHire", lecturer.DateOfHire);
+                cmd.Parameters.AddWithValue("@username", lecturer.Username ?? (object)DBNull.Value); // Handle optional fields
+                cmd.Parameters.AddWithValue("@password", lecturer.Password ?? (object)DBNull.Value); // Handle optional fields
 
                 cmd.ExecuteNonQuery();
                 return true;
             }
             catch (Exception ex)
             {
-                Console.WriteLine("An error occurred while updating lecturer: " + ex.Message);
+                Console.WriteLine("An error occurred: " + ex.Message);
                 return false;
             }
         }
 
-        public static List<Claims> GetClaimsForUser(int userId)
+        public static Lecturer GetLecturerById(int lecturerId)
         {
-            List<Claims> claimsList = new();
+            Lecturer lecturer = null;
 
             try
             {
                 using MySqlConnection con = new(constr);
                 con.Open();
 
-                string qry = @"SELECT Id, StatusId, LecturerName, HoursWorked, HourlyRate, Notes, Status, FileName, DateSubmitted, RejectionReason 
-                       FROM Claims WHERE UserId = @userId"; // Adjust based on your actual table structure
+                string qry = @"SELECT LecturerID, Name, DateOfHire, Username, Password, Email, Phone, Department
+                       FROM Lecturers 
+                       WHERE LecturerID = @lecturerId";
 
                 using MySqlCommand cmd = new(qry, con);
-                cmd.Parameters.AddWithValue("@userId", userId);
+                cmd.Parameters.AddWithValue("@lecturerId", lecturerId);
+
+                using MySqlDataReader reader = cmd.ExecuteReader();
+                if (reader.Read())
+                {
+                    lecturer = new Lecturer
+                    {
+                        LecturerId = reader.GetInt32("LecturerID"),
+                        Name = reader.GetString("Name"),
+                        Email = reader.IsDBNull(reader.GetOrdinal("Email")) ? null : reader.GetString("Email"),
+                        Phone = reader.IsDBNull(reader.GetOrdinal("Phone")) ? null : reader.GetString("Phone"),
+                        Department = reader.IsDBNull(reader.GetOrdinal("Department")) ? null : reader.GetString("Department"),
+                        DateOfHire = reader.GetDateTime("DateOfHire"),
+                        Username = reader.IsDBNull(reader.GetOrdinal("Username")) ? null : reader.GetString("Username"),
+                        Password = reader.IsDBNull(reader.GetOrdinal("Password")) ? null : reader.GetString("Password"),
+                    };
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("An error occurred: " + ex.Message);
+            }
+
+            return lecturer;
+        }
+        public static bool SaveChanges(Lecturer lecturer)
+        {
+            try
+            {
+                return EditLecturer(lecturer); // Reuse the existing EditLecturer method to save changes
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("An error occurred while saving changes: " + ex.Message);
+                return false;
+            }
+        }
+
+        public static List<Claims> GetClaimsForUser(int userId)
+            {
+                List<Claims> claimsList = new();
+
+                try
+                {
+                    using MySqlConnection con = new(constr);
+                    con.Open();
+
+                    string qry = @"SELECT Id, StatusId, LecturerName, HoursWorked, HourlyRate, Notes, Status, FileName, DateSubmitted, RejectionReason 
+                       FROM Claims WHERE UserId = @userId"; // Adjust based on your actual table structure
+
+                    using MySqlCommand cmd = new(qry, con);
+                    cmd.Parameters.AddWithValue("@userId", userId);
+
+                    using MySqlDataReader reader = cmd.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        Claims claim = new()
+                        {
+                            Id = reader.GetInt32("Id"),
+                            StatusId = reader.GetInt32("StatusId"),
+                            LecturerName = reader.GetString("LecturerName"),
+                            HoursWorked = reader.GetDecimal("HoursWorked"),
+                            HourlyRate = reader.GetDecimal("HourlyRate"),
+                            Notes = reader.IsDBNull(reader.GetOrdinal("Notes")) ? null : reader.GetString("Notes"),
+                            Status = reader.GetString("Status"),
+                            FileName = reader.IsDBNull(reader.GetOrdinal("FileName")) ? null : reader.GetString("FileName"),
+                            DateSubmitted = reader.GetDateTime("DateSubmitted"),
+                            RejectionReason = reader.IsDBNull(reader.GetOrdinal("RejectionReason")) ? null : reader.GetString("RejectionReason")
+                        };
+
+                        claimsList.Add(claim);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("An error occurred: " + ex.Message);
+                }
+
+                return claimsList;
+            }
+            public static bool UpdateClaim(Claims claim)
+            {
+                try
+                {
+                    using MySqlConnection con = new(constr);
+                    con.Open();
+
+                    string qry = @"UPDATE Claims SET 
+                        Status = @status, 
+                        RejectionReason = @rejectionReason 
+                        WHERE Id = @id";
+
+                    using MySqlCommand cmd = new(qry, con);
+                    cmd.Parameters.AddWithValue("@id", claim.Id);
+                    cmd.Parameters.AddWithValue("@status", claim.Status);
+                    cmd.Parameters.AddWithValue("@rejectionReason", claim.RejectionReason ?? (object)DBNull.Value);
+
+                    cmd.ExecuteNonQuery();
+                    return true;
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("An error occurred: " + ex.Message);
+                    return false;
+                }
+            }
+
+        public static List<Claims> GetApprovedClaimsByDateRange(DateTime startDate, DateTime endDate)
+        {
+            List<Claims> claimsList = new List<Claims>();
+
+            try
+            {
+                using MySqlConnection con = new MySqlConnection(constr);
+                con.Open();
+
+                // Query to get approved claims within the specified date range
+                string qry = @"SELECT Id, StatusId, LecturerName, HoursWorked, HourlyRate, Notes, Status, FileName, DateSubmitted, RejectionReason
+                       FROM Claims
+                       WHERE Status = 'Approved' 
+                       AND DateSubmitted BETWEEN @startDate AND @endDate";
+
+                using MySqlCommand cmd = new MySqlCommand(qry, con);
+                cmd.Parameters.AddWithValue("@startDate", startDate);
+                cmd.Parameters.AddWithValue("@endDate", endDate);
 
                 using MySqlDataReader reader = cmd.ExecuteReader();
                 while (reader.Read())
                 {
-                    Claims claim = new()
+                    Claims claim = new Claims
                     {
                         Id = reader.GetInt32("Id"),
                         StatusId = reader.GetInt32("StatusId"),
@@ -285,35 +401,34 @@ namespace ClaimSystem.Models
 
             return claimsList;
         }
-        public static bool UpdateClaim(Claims claim)
+
+        public static bool SaveReport(string reportContent, string filePath)
         {
             try
             {
-                using MySqlConnection con = new(constr);
-                con.Open();
-
-                string qry = @"UPDATE Claims SET 
-                        Status = @status, 
-                        RejectionReason = @rejectionReason 
-                        WHERE Id = @id";
-
-                using MySqlCommand cmd = new(qry, con);
-                cmd.Parameters.AddWithValue("@id", claim.Id);
-                cmd.Parameters.AddWithValue("@status", claim.Status);
-                cmd.Parameters.AddWithValue("@rejectionReason", claim.RejectionReason ?? (object)DBNull.Value);
-
-                cmd.ExecuteNonQuery();
+                // Here, we will write the content to a file on disk. If you want to store it in a database, you can adjust this to insert into a table
+                File.WriteAllText(filePath, reportContent); // Save as text file (you can change to PDF saving logic as needed)
                 return true;
             }
             catch (Exception ex)
             {
-                Console.WriteLine("An error occurred: " + ex.Message);
+                Console.WriteLine("An error occurred while saving the report: " + ex.Message);
                 return false;
             }
         }
 
-
-
+        internal static void SaveReport(Report report)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
+
+
+        
+
+
+
+    
+
 
