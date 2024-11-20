@@ -139,5 +139,46 @@ namespace ClaimSystem.Controllers
                 return View("Error");
             }
         }
+        [HttpGet]
+        public IActionResult GenerateInvoiceForm()
+        {
+            return View();
+        }
+
+        [HttpPost]
+
+        public async Task<IActionResult> GenerateInvoice(DateTime startDate, DateTime endDate)
+        {
+            try
+            {
+                var approvedClaims = ClaimDbContext.GetApprovedClaimsByDateRange(startDate, endDate);
+
+                if (approvedClaims == null || !approvedClaims.Any())
+                {
+                    TempData["Message"] = "No approved claims found in the specified date range.";
+                    return RedirectToAction("GenerateInvoiceForm");  // Redirect back to the form
+                }
+
+                decimal totalClaimsAmount = approvedClaims.Sum(c => c.HoursWorked * c.HourlyRate);
+                var invoice = new Invoice
+                {
+                    InvoiceNumber = Guid.NewGuid().ToString(),  // Generate a unique invoice number
+                    InvoiceDate = DateTime.Now,
+                    PeriodStart = startDate,
+                    PeriodEnd = endDate,
+                    Claims = approvedClaims,
+                    TotalAmount = totalClaimsAmount
+                };
+
+
+                return View("InvoiceView", invoice);
+
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error generating the invoice.");
+                return View("Error");
+            }
+        }
     }
 }

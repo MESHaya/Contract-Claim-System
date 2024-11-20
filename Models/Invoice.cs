@@ -1,11 +1,12 @@
-﻿using System.Security.Claims;
-
-public class Invoice
+﻿namespace ClaimSystem.Models
 {
-    public int InvoiceID { get; set; }
-    public int LecturerID { get; set; }
-    public DateTime GeneratedDate { get; set; }
-    public List<Claim> Claims { get; set; }
-    public decimal TotalAmount { get; set; }
-    public string Status { get; set; } // e.g., "Pending", "Paid"
+    public class Invoice
+    {
+        public string InvoiceNumber { get; set; }
+        public DateTime InvoiceDate { get; set; }
+        public DateTime PeriodStart { get; set; }
+        public DateTime PeriodEnd { get; set; }
+        public List<Claims> Claims { get; set; }
+        public decimal TotalAmount { get; set; }
+    }
 }

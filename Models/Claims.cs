@@ -16,6 +16,7 @@ namespace ClaimSystem.Models
         [Required]
         public string Status { get; set; }
         public string? FileName { get; set; }
+      
         public DateTime DateSubmitted { get; set; }  // Date of submission
 
         public string? RejectionReason {  get; set; }

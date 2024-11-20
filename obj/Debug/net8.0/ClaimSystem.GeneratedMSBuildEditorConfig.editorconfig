@@ -38,12 +38,8 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSFJcRWRpdExlY3R1cmVyRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/meshaya/source/repos/ClaimSystem/Views/HR/GenerateInvoice.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSFJcR2VuZXJhdGVJbnZvaWNlLmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/meshaya/source/repos/ClaimSystem/Views/HR/GenerateReport.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSFJcR2VuZXJhdGVSZXBvcnQuY3NodG1s
+[C:/Users/meshaya/source/repos/ClaimSystem/Views/HR/GenerateInvoiceForm.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSFJcR2VuZXJhdGVJbnZvaWNlRm9ybS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/meshaya/source/repos/ClaimSystem/Views/HR/GenerateReportForm.cshtml]
@@ -52,6 +48,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/meshaya/source/repos/ClaimSystem/Views/HR/HRdash.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSFJcSFJkYXNoLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/meshaya/source/repos/ClaimSystem/Views/HR/InvoiceView.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSFJcSW52b2ljZVZpZXcuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/meshaya/source/repos/ClaimSystem/Views/HR/ReportView.cshtml]
