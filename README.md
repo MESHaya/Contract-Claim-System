@@ -30,7 +30,7 @@ The Contract Claim Submission System is a lightweight application designed to st
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/your-username/contract-claim-system.git
+   git clone: https://github.com/MESHaya/Contract-Claim-System
 Open the solution in Visual Studio.
 
 2. Build and run the application.
